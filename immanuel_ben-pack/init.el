@@ -20,6 +20,7 @@
 ;; Magit
 (live-add-pack-lib "magit-1.1.1")
 (require 'magit)
+(global-set-key (kbd "s-r") 'magit-status)
 
 ;; Hack for indents
 (defun shift-region (distance)
