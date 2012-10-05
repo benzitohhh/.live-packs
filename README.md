@@ -28,3 +28,8 @@ To apply the patch:
 4.`git apply --directory=packs/live/clojure-pack/lib/auto-complete ~/Desktop/acPatch.patch`
 
 The above should modify auto-complete-config.el (removing one line, and adding 5 new lines)
+
+# "new" html
+
+`C-x C-f <someName>.html` then type `new` and hit `TAB`
+
