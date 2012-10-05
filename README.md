@@ -17,7 +17,8 @@ There's a nice piece explaining it all [here](http://blog.deadpansincerity.com/2
 In the dictionary folder (~/.emacs.d/packs/live/clojure-pack/lib/auto-complete/dict/ ) you
 may need to simlink js-mode and js2-mode to point to javascript-mode.
 
-Also, as of writing, emacs live uses an old version of auto-complete which conflicts with yassnippets.  
+Also, as of writing, emacs live uses an old version of auto-complete which conflicts with yassnippets.
+The result is that autocomplete does not work for some modes (i.e. javascript).
 This [patch](https://github.com/tkf/auto-complete/commit/337caa2ccc254a79f615bb2417f0d2fb9552b547.patch) fixes things.
 To apply the patch:
 
