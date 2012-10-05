@@ -22,6 +22,18 @@
 (require 'magit)
 (global-set-key (kbd "s-r") 'magit-status)
 
+;; js2-mode
+;; (live-add-pack-lib "js2-mode")
+;; (require 'js2-mode)
+;; (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
+
+;; js snippets for yas
+(setq tempytemp load-file-name)
+(setq custom-yasnippet-dir (concat (file-name-directory load-file-name) "etc/snippets"))
+(setq yas/snippet-dirs (cons custom-yasnippet-dir yas/snippet-dirs))
+(yas/reload-all)
+
 ;; Hack for indents
 (defun shift-region (distance)
   (let ((mark (mark)))
