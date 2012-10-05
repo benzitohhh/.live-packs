@@ -1,12 +1,16 @@
 # js2-mode
 
 from [Mooz](https://github.com/mooz/js2-mode/tree/emacs24)
-You may want to disable this (i.e. it's a bit heavyweight, do you really want syntax checking etc?)
+
+You may want to disable this as it's fairly heavyweight. Do you really want syntax checking etc?
 
 # javascript-mode snippets (for yasnippets)
 
 from [David Miller](https://github.com/davidmiller/yasnips/tree/development/javascript-mode)
-In etc/snippets/ , you may need to simlink js2-mode to js-mode
+
+In etc/snippets/, you may need to simlink js2-mode to js-mode.
+
+There's a nice piece explaining it all [here](http://blog.deadpansincerity.com/2011/05/setting-up-emacs-as-a-javascript-editing-environment-for-fun-and-profit/)
 
 # auto-complete-mode
 
