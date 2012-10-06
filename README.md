@@ -1,3 +1,15 @@
+# instalation
+
+If git is 1.65 or greater do
+
+    git clone --recursive git@github.com:benzitohhh/.live-packs.git 
+
+Otherwise
+
+    git clone git@github.com:benzitohhh/.live-packs.git
+    git submodule init
+    git submodule update
+
 # js2-mode
 
 from [Mooz](https://github.com/mooz/js2-mode/tree/emacs24)
