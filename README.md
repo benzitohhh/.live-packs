@@ -10,6 +10,27 @@ Otherwise
     git submodule init
     git submodule update
 
+# build-ctags-git
+
+For better ctags support for OO javascript, add this to your `~/.ctags`
+
+    --langdef=js
+    --langmap=js:.js
+    --regex-js=/([A-Za-z0-9._$]+)[ \t]*[:=][ \t]*\{/\1/,object/
+    --regex-js=/([A-Za-z0-9._$()]+)[ \t]*[:=][ \t]*function[ \t]*\(/\1/,function/
+    --regex-js=/function[ \t]+([A-Za-z0-9._$]+)[ \t]*\(([^)])\)/\1/,function/
+    --regex-js=/([A-Za-z0-9._$]+)[ \t]*[:=][ \t]*\[/\1/,array/
+    --regex-js=/([^= ]+)[ \t]*=[ \t]*[^"]'[^']*/\1/,string/
+    --regex-js=/([^= ]+)[ \t]*=[ \t]*[^']"[^"]*/\1/,string/
+    
+    --exclude=*.min.js
+    --exclude=.git
+    
+    --langdef=clojure
+    --langmap=clojure:.clj
+    --regex-clojure=/^\(def(n|macro|type|record|interface)?\-?[ \t]*([^ \t]+).*/\2/d,definition/
+
+
 # js2-mode
 
 from [Mooz](https://github.com/mooz/js2-mode/tree/emacs24)
