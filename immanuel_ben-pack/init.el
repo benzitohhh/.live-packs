@@ -3,9 +3,6 @@
 ;; User this file to initiate the pack configuration.
 ;; See README for more information.
 
-;; Load bindings config
-(live-load-config-file "bindings.el")
-
 ;; Set default emacs C source directory
 (setq source-directory "/usr/local/emacs/emacs-24.2")
 
@@ -22,11 +19,25 @@
 (require 'magit)
 (global-set-key (kbd "s-r") 'magit-status)
 
-;; js2-mode
-;; (live-add-pack-lib "js2-mode")
-;; (require 'js2-mode)
-;; (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
-(add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
+;; build-ctags-git
+(live-add-pack-lib "build-ctags-git")
+(require 'build-ctags-git)
+
+;; multiple-cursors
+(live-add-pack-lib "multiple-cursors")
+(require 'multiple-cursors)
+
+;; etags-select
+(live-add-pack-lib "etags-select")
+(require 'etags-select)
+
+;; js-mode    (as opposed to js2-mode below)
+;(add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
+
+;; js2-mode   (as opposed to js-mode above)
+(live-add-pack-lib "js2-mode")
+(require 'js2-mode)
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
 ;; js snippets for yas
 (setq tempytemp load-file-name)
@@ -34,21 +45,18 @@
 (setq yas/snippet-dirs (cons custom-yasnippet-dir yas/snippet-dirs))
 (yas/reload-all)
 
-;; Hack for indents
-(defun shift-region (distance)
-  (let ((mark (mark)))
-    (save-excursion
-      (indent-rigidly (region-beginning) (region-end) distance)
-      (push-mark mark t t)
-      (setq deactivate-mark nil))))
+;; hack to allow yas tab within js2-mode
+;; try running this if you have yas vs js2 conflicts...
+;; (eval-after-load 'js2-mode
+;;   '(progn
+;;      (define-key js2-mode-map (kbd "TAB")
+;;        (lambda()
+;;          (interactive)
+;;          (let ((yas/fallback-behavior 'return-nil))
+;;            (unless (yas/expand)
+;;              (indent-for-tab-command)
+;;              (if (looking-back "^\s*")
+;;                  (back-to-indentation))))))))
 
-(defun shift-right ()
-  (interactive)
-  (shift-region 1))
-
-(defun shift-left ()
-  (interactive)
-  (shift-region -1))
-
-(global-set-key [C-S-right] 'shift-right)
-(global-set-key [C-S-left] 'shift-left)
+;; Load bindings config
+(live-load-config-file "bindings.el")
