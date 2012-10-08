@@ -4,6 +4,18 @@
 ;;(define-key global-map (kbd "C-+") 'text-scale-increase)
 ;;(define-key global-map (kbd "C--") 'text-scale-decrease)
 
+;; Map OSX command-key to M-
+(setq mac-command-modifier 'meta)
+
+;; To cycle between frames
+(global-set-key "\M-`" 'other-frame)
+
+;; To close a frame (aka window)
+(global-set-key (kbd "C-c C-q") 'delete-frame)
+
+;; Set binding for opening recent files
+(global-set-key "\C-x\ \w" 'recentf-open-files)
+
 ;; iy-go-to-char - like f in Vim
 (global-set-key (kbd "M-m") 'iy-go-to-char)
 (global-set-key (kbd "M-M") 'iy-go-to-char-backward)
