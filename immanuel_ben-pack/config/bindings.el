@@ -10,11 +10,19 @@
 (key-chord-define-global "fg" 'iy-go-to-char)
 (key-chord-define-global "df" 'iy-go-to-char-backward)
 
-;;; js2-mode bindings
+;;; js2-mode
 ;; ";;" (double tap) puts a ; at the end of the line
 (key-chord-define js2-mode-map ";;" "\C-e;")
 ;; ";RET" (hit simultaneously) puts a ;RET at the end of the line
 (key-chord-define js2-mode-map ";l" "\C-e;\C-j")
+(add-hook 'js2-mode-hook
+          (lambda ()
+            ;; Scan the file for nested code blocks
+            (imenu-add-menubar-index)
+            ;; Activate the folding mode
+            (hs-minor-mode t)))
+(global-set-key (kbd "C-c C-h") 'hs-toggle-hiding)
+(global-set-key (kbd "C-c C-j") 'hs-show-all)
 
 ;; misc stuff
 (global-set-key (kbd "C-c n") 'cleanup-buffer)
@@ -38,12 +46,8 @@
          nil))
      ))
 
-
 ;; expand region
 (global-set-key (kbd "C-=") 'er/expand-region)
-;; er/mark-html-attribute
-;; er/mark-inner-tag
-;; er/mark-outer-tag
 
 ;; multiple cursors
 (global-set-key (kbd "<f1>") 'set-rectangular-region-anchor)
@@ -51,10 +55,6 @@
 (global-set-key (kbd "<f6>") 'mc/mark-next-like-this)
 (global-set-key (kbd "<f7>") 'mc/mark-all-like-this)
 (global-set-key (kbd "<f8>") 'mc/mark-more-like-this-extended)
-;(global-set-key (kbd "<f9>") 'mc/mark-all-in-region)
-;(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
-;(global-set-key (kbd "C-S-c C-e") 'mc/edit-ends-of-lines)
-;(global-set-key (kbd "C-S-c C-a") 'mc/edit-beginnings-of-lines)
 
 ;; Hack for indents
 (defun shift-region (distance)
