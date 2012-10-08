@@ -43,6 +43,11 @@
 (live-add-pack-lib "zencoding")
 (require 'zencoding-mode)
 
+;; textmate
+(live-add-pack-lib "textmate")
+(require 'textmate)
+(textmate-mode)
+
 ;; etags-select
 (live-add-pack-lib "etags-select")
 (require 'etags-select)

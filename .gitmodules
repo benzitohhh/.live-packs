@@ -10,3 +10,6 @@
 [submodule "immanuel_ben-pack/lib/zencoding"]
 	path = immanuel_ben-pack/lib/zencoding
 	url = https://github.com/rooney/zencoding.git
+[submodule "immanuel_ben-pack/lib/textmate"]
+	path = immanuel_ben-pack/lib/textmate
+	url = https://github.com/defunkt/textmate.el.git
