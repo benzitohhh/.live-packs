@@ -1,3 +1,12 @@
 [submodule "immanuel_ben-pack/lib/multiple-cursors"]
 	path = immanuel_ben-pack/lib/multiple-cursors
 	url = https://github.com/magnars/multiple-cursors.el
+[submodule "immanuel_ben-pack/lib/expand-region"]
+	path = immanuel_ben-pack/lib/expand-region
+	url = https://github.com/magnars/expand-region.el.git
+[submodule "immanuel_ben-pack/lib/mark-multiple"]
+	path = immanuel_ben-pack/lib/mark-multiple
+	url = https://github.com/magnars/mark-multiple.el.git
+[submodule "immanuel_ben-pack/lib/zencoding"]
+	path = immanuel_ben-pack/lib/zencoding
+	url = https://github.com/rooney/zencoding.git

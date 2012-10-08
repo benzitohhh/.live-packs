@@ -23,9 +23,25 @@
 (live-add-pack-lib "build-ctags-git")
 (require 'build-ctags-git)
 
+;; misc
+(live-add-pack-lib "misc")
+(require 'misc)
+
+;; expand-region
+(live-add-pack-lib "expand-region")
+(require 'expand-region)
+
+;; mark-multiple
+(live-add-pack-lib "mark-multiple")
+(require 'mark-multiple)
+
 ;; multiple-cursors
 (live-add-pack-lib "multiple-cursors")
 (require 'multiple-cursors)
+
+;; zencoding
+(live-add-pack-lib "zencoding")
+(require 'zencoding-mode)
 
 ;; etags-select
 (live-add-pack-lib "etags-select")
