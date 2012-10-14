@@ -5,7 +5,7 @@
 ;;(define-key global-map (kbd "C--") 'text-scale-decrease)
 
 ;; Map OSX command-key to M-
-(setq mac-command-modifier 'meta)
+;(setq mac-command-modifier 'meta)
 
 ;; To cycle between frames
 (global-set-key "\M-`" 'other-frame)

@@ -20,6 +20,10 @@
 (live-add-pack-lib "build-ctags-git")
 (require 'build-ctags-git)
 
+;; etags-select
+(live-add-pack-lib "etags-select")
+(require 'etags-select)
+
 ;; misc
 (live-add-pack-lib "misc")
 (require 'misc)
@@ -45,24 +49,22 @@
 ;(require 'textmate)
 ;(textmate-mode)
 
-;; js-comint
-(live-add-pack-lib "js-comint")
-(require 'js-comint)
-;; Use node as our repl
-(setq inferior-js-program-command "node")
-(setq inferior-js-mode-hook
-      (lambda ()
-        ;; We like nice colors
-        (ansi-color-for-comint-mode-on)
-        ;; Deal with some prompt nonsense
-        (add-to-list 'comint-preoutput-filter-functions
-                     (lambda (output)
-                       (replace-regexp-in-string ".*1G\.\.\..*5G" "..."
-                                                 (replace-regexp-in-string ".*1G.*3G" ">" output))))))
+;; zenburn-theme
+;(live-add-pack-lib "zenburn-theme")
+;(require 'zenburn-theme)
 
-;; etags-select
-(live-add-pack-lib "etags-select")
-(require 'etags-select)
+(add-hook 'python-mode-hook
+     (lambda ()
+      (define-key python-mode-map "\"" 'electric-pair)
+      (define-key python-mode-map "\'" 'electric-pair)
+      (define-key python-mode-map "(" 'electric-pair)
+      (define-key python-mode-map "[" 'electric-pair)
+      (define-key python-mode-map "{" 'electric-pair)))
+(defun electric-pair ()
+  "Insert character pair without sournding spaces"
+  (interactive)
+  (let (parens-require-spaces)
+    (insert-pair)))
 
 ;; js-mode    (as opposed to js2-mode below)
 ;(add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
@@ -72,8 +74,7 @@
 (require 'js2-mode)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
-;; js snippets for yas
-(setq tempytemp load-file-name)
+;; extra snippets for yas
 (setq custom-yasnippet-dir (concat (file-name-directory load-file-name) "etc/snippets"))
 (setq yas/snippet-dirs (cons custom-yasnippet-dir yas/snippet-dirs))
 (yas/reload-all)
@@ -90,6 +91,21 @@
 ;;              (indent-for-tab-command)
 ;;              (if (looking-back "^\s*")
 ;;                  (back-to-indentation))))))))
+
+;; js-comint
+;; (live-add-pack-lib "js-comint")
+;; (require 'js-comint)
+;; Use node as our repl
+(setq inferior-js-program-command "node")
+(setq inferior-js-mode-hook
+      (lambda ()
+        ;; We like nice colors
+        (ansi-color-for-comint-mode-on)
+        ;; Deal with some prompt nonsense
+        (add-to-list 'comint-preoutput-filter-functions
+                     (lambda (output)
+                       (replace-regexp-in-string ".*1G\.\.\..*5G" "..."
+                                                 (replace-regexp-in-string ".*1G.*3G" ">" output))))))
 
 ;; Load bindings config
 (live-load-config-file "bindings.el")
