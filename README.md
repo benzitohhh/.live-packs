@@ -10,6 +10,10 @@ Otherwise
     git submodule init
     git submodule update
 
+Then modify your `~/.emacs-live.el`, adding this line:
+
+    (live-add-packs '(~/.live-packs/immanuel_ben-pack))
+
 # build-ctags-git
 
 For better ctags support for OO javascript, add this to your `~/.ctags`
