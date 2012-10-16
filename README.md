@@ -14,6 +14,8 @@ Then modify your `~/.emacs-live.el`, adding this line:
 
     (live-add-packs '(~/.live-packs/immanuel_ben-pack))
 
+Finally, modify `~/.live-packs/immanuel_ben-pack/init.el`, setting `source-directory` and `Git's contrib/git.el` appropriately.
+
 # build-ctags-git
 
 For better ctags support for OO javascript, add this to your `~/.ctags`
