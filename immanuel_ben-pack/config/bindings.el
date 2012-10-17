@@ -33,6 +33,32 @@
             (imenu-add-menubar-index)
             ;; Activate the folding mode
             (hs-minor-mode t)))
+
+;;; php-mode
+;; ";;" (double tap) puts a ; at the end of the line
+(key-chord-define php-mode-map ";;" "\C-e;")
+;; ";RET" (hit simultaneously) puts a ;RET at the end of the line
+(key-chord-define php-mode-map ";l" "\C-e;\C-j")
+
+;; python-mode
+(require 'python)
+(key-chord-define python-mode-map ";l" "\C-e\C-j")
+(key-chord-define python-mode-map ";'" "\C-e:\C-j")
+(add-hook 'python-mode-hook
+     (lambda ()
+      (define-key python-mode-map "\"" 'electric-pair)
+      (define-key python-mode-map "\'" 'electric-pair)
+      (define-key python-mode-map "(" 'electric-pair)
+      (define-key python-mode-map "[" 'electric-pair)
+      (define-key python-mode-map "{" 'electric-pair)))
+(defun electric-pair ()
+  "Insert character pair without sournding spaces"
+  (interactive)
+  (let (parens-require-spaces)
+    (insert-pair)))
+
+
+;; code folding
 (global-set-key (kbd "C-c C-h") 'hs-toggle-hiding)
 (global-set-key (kbd "C-c C-j") 'hs-show-all)
 

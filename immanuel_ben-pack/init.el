@@ -5,9 +5,11 @@
 
 ;; Set default emacs C source directory
 (setq source-directory "/usr/local/emacs/emacs-24.2")
+;(setq source-directory "/Users/beni/usr/local/emacs/emacs-24.2")
 
 ;; Git support
 (add-to-list 'load-path "/usr/local/git/contrib/emacs")
+;(add-to-list 'load-path "/Users/beni/usr/local/git/contrib/emacs")
 (require 'git)
 (require 'git-blame)
 
@@ -53,19 +55,6 @@
 ;(live-add-pack-lib "zenburn-theme")
 ;(require 'zenburn-theme)
 
-(add-hook 'python-mode-hook
-     (lambda ()
-      (define-key python-mode-map "\"" 'electric-pair)
-      (define-key python-mode-map "\'" 'electric-pair)
-      (define-key python-mode-map "(" 'electric-pair)
-      (define-key python-mode-map "[" 'electric-pair)
-      (define-key python-mode-map "{" 'electric-pair)))
-(defun electric-pair ()
-  "Insert character pair without sournding spaces"
-  (interactive)
-  (let (parens-require-spaces)
-    (insert-pair)))
-
 ;; js-mode    (as opposed to js2-mode below)
 ;(add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
 
@@ -73,6 +62,10 @@
 (live-add-pack-lib "js2-mode")
 (require 'js2-mode)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+
+;; php-mode
+(live-add-pack-lib "php-mode")
+(require 'php-mode)
 
 ;; extra snippets for yas
 (setq custom-yasnippet-dir (concat (file-name-directory load-file-name) "etc/snippets"))

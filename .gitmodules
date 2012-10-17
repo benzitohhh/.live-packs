@@ -13,3 +13,6 @@
 [submodule "immanuel_ben-pack/lib/textmate"]
 	path = immanuel_ben-pack/lib/textmate
 	url = https://github.com/defunkt/textmate.el.git
+[submodule "immanuel_ben-pack/lib/php-mode"]
+	path = immanuel_ben-pack/lib/php-mode
+	url = https://github.com/ejmr/php-mode.git
