@@ -30,6 +30,13 @@
 (live-add-pack-lib "ben-scp")
 (require 'ben-scp)
 
+;; full-ack
+(live-add-pack-lib "full-ack")
+(autoload 'ack-same "full-ack" nil t)
+(autoload 'ack "full-ack" nil t)
+(autoload 'ack-find-same-file "full-ack" nil t)
+(autoload 'ack-find-file "full-ack" nil t)
+
 ;; misc
 (live-add-pack-lib "misc")
 (require 'misc)
