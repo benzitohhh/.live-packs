@@ -14,7 +14,13 @@ Then modify your `~/.emacs-live.el`, adding this line:
 
     (live-add-packs '(~/.live-packs/immanuel_ben-pack))
 
-Finally, modify `~/.live-packs/immanuel_ben-pack/init.el`, setting `source-directory` and `Git's contrib/git.el` appropriately.
+Finally, modify `~/.live-packs/immanuel_ben-pack/init.el`, setting
+
+1. `source-directory`
+2. `Git's contrib/git.el`
+3. `ack-executable`
+
+appropriately for your machine.
 
 # build-ctags-git
 
@@ -56,7 +62,9 @@ There's a nice piece explaining it all [here](http://blog.deadpansincerity.com/2
 In the dictionary folder (~/.emacs.d/packs/live/clojure-pack/lib/auto-complete/dict/ ) you
 may need to simlink js-mode and js2-mode to point to javascript-mode.
 
-Also, as of writing, emacs live uses an old version of auto-complete which conflicts with yassnippets.
+## ac vs yas conflict 1
+
+As of writing, emacs live uses an old version of auto-complete which conflicts with yassnippets.
 The result is that autocomplete does not work for some modes (i.e. javascript).
 This [patch](https://github.com/tkf/auto-complete/commit/337caa2ccc254a79f615bb2417f0d2fb9552b547.patch) fixes things.
 To apply the patch:
@@ -67,6 +75,12 @@ To apply the patch:
 4.`git apply --directory=packs/live/clojure-pack/lib/auto-complete ~/Desktop/acPatch.patch`
 
 The above should modify auto-complete-config.el (removing one line, and adding 5 new lines)
+
+## ac vs yas conflict 2
+
+Yas overrides ac's tab binding. A workaround is to modify `auto-complete.el`, for example binding to C-`:
+
+    (define-key map (kbd "C-`") 'ac-expand)
 
 # "new" html
 
