@@ -14,7 +14,13 @@ Then modify your `~/.emacs-live.el`, adding this line:
 
     (live-add-packs '(~/.live-packs/immanuel_ben-pack))
 
-Finally, modify `~/.live-packs/immanuel_ben-pack/init.el`, setting `source-directory` and `Git's contrib/git.el` appropriately.
+Finally, modify `~/.live-packs/immanuel_ben-pack/init.el`, setting
+
+1. `source-directory`
+2. `Git's contrib/git.el`
+3. `ack-executable`
+
+appropriately for your machine.
 
 # build-ctags-git
 
