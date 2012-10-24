@@ -4,12 +4,12 @@
 ;; See README for more information.
 
 ;; Set default emacs C source directory
-(setq source-directory "/usr/local/emacs/emacs-24.2")
-;(setq source-directory "/Users/beni/usr/local/emacs/emacs-24.2")
+;(setq source-directory "/usr/local/emacs/emacs-24.2")
+(setq source-directory "/Users/beni/usr/local/emacs/emacs-24.2")
 
 ;; Git support
-(add-to-list 'load-path "/usr/local/git/contrib/emacs")
-;(add-to-list 'load-path "/Users/beni/usr/local/git/contrib/emacs")
+;(add-to-list 'load-path "/usr/local/git/contrib/emacs")
+(add-to-list 'load-path "/Users/beni/usr/local/git/contrib/emacs")
 (require 'git)
 (require 'git-blame)
 
@@ -25,6 +25,10 @@
 ;; etags-select
 (live-add-pack-lib "etags-select")
 (require 'etags-select)
+
+;; ben-scp
+(live-add-pack-lib "ben-scp")
+(require 'ben-scp)
 
 ;; misc
 (live-add-pack-lib "misc")
@@ -66,6 +70,10 @@
 ;; php-mode
 (live-add-pack-lib "php-mode")
 (require 'php-mode)
+
+;; less-css-mode
+(live-add-pack-lib "less-css-mode")
+(require 'less-css-mode)
 
 ;; extra snippets for yas
 (setq custom-yasnippet-dir (concat (file-name-directory load-file-name) "etc/snippets"))
