@@ -13,6 +13,14 @@
 (require 'git)
 (require 'git-blame)
 
+;; full-ack
+(live-add-pack-lib "full-ack")
+(autoload 'ack-same "full-ack" nil t)
+(autoload 'ack "full-ack" nil t)
+(autoload 'ack-find-same-file "full-ack" nil t)
+(autoload 'ack-find-file "full-ack" nil t)
+(setq ack-executable "/Users/beni/usr/local/bin/ack")
+
 ;; Magit
 (live-add-pack-lib "magit-1.1.1")
 (require 'magit)
@@ -29,13 +37,6 @@
 ;; ben-scp
 (live-add-pack-lib "ben-scp")
 (require 'ben-scp)
-
-;; full-ack
-(live-add-pack-lib "full-ack")
-(autoload 'ack-same "full-ack" nil t)
-(autoload 'ack "full-ack" nil t)
-(autoload 'ack-find-same-file "full-ack" nil t)
-(autoload 'ack-find-file "full-ack" nil t)
 
 ;; misc
 (live-add-pack-lib "misc")
