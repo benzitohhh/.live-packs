@@ -56,7 +56,9 @@ There's a nice piece explaining it all [here](http://blog.deadpansincerity.com/2
 In the dictionary folder (~/.emacs.d/packs/live/clojure-pack/lib/auto-complete/dict/ ) you
 may need to simlink js-mode and js2-mode to point to javascript-mode.
 
-Also, as of writing, emacs live uses an old version of auto-complete which conflicts with yassnippets.
+## ac vs yas conflict 1
+
+As of writing, emacs live uses an old version of auto-complete which conflicts with yassnippets.
 The result is that autocomplete does not work for some modes (i.e. javascript).
 This [patch](https://github.com/tkf/auto-complete/commit/337caa2ccc254a79f615bb2417f0d2fb9552b547.patch) fixes things.
 To apply the patch:
@@ -67,6 +69,12 @@ To apply the patch:
 4.`git apply --directory=packs/live/clojure-pack/lib/auto-complete ~/Desktop/acPatch.patch`
 
 The above should modify auto-complete-config.el (removing one line, and adding 5 new lines)
+
+## ac vs yas conflict 2
+
+Yas overrides ac's tab binding. A workaround is to modify `auto-complete.el`, for example binding to C-`:
+
+    (define-key map (kbd "C-`") 'ac-expand)
 
 # "new" html
 
