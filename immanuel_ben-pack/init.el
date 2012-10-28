@@ -25,6 +25,12 @@
 ;; make sure whitespace-cleanup not being used
 (remove-hook 'before-save-hook 'whitespace-cleanup)
 
+;; prevent files opened from finder opening in new frame
+(setq ns-pop-up-frames nil)
+
+;; Don't break lines for me, please
+(setq-default truncate-lines t)
+
 ;; Magit
 (live-add-pack-lib "magit-1.1.1")
 (require 'magit)
@@ -41,6 +47,12 @@
 ;; ben-scp
 (live-add-pack-lib "ben-scp")
 (require 'ben-scp)
+
+;; shell-command
+(live-add-pack-lib "shell-command")
+(require 'shell-command)
+(eval-after-load 'shell '(require 'setup-shell))
+(add-hook 'shell-mode-hook (lambda () (toggle-truncate-lines -1)))
 
 ;; misc
 (live-add-pack-lib "misc")
