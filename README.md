@@ -14,13 +14,17 @@ Then modify your `~/.emacs-live.el`, adding this line:
 
     (live-add-packs '(~/.live-packs/immanuel_ben-pack))
 
-Finally, modify `~/.live-packs/immanuel_ben-pack/init.el`, setting
+Then, modify `~/.live-packs/immanuel_ben-pack/init.el`, setting
 
 1. `source-directory`
 2. `Git's contrib/git.el`
 3. `ack-executable`
 
 appropriately for your machine.
+
+And finally, you probably want to disable the live colour scheme
+(it's nice for lisp and clojure, but kind of bright otherwise),
+so modify `~/.emacs.d/init.el` commenting out `(concat live-dir "colour-pack")`
 
 # build-ctags-git
 
