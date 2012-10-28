@@ -30,6 +30,8 @@ by modifying `~/.emacs.d/packs/live/colour-pack/init.el`, commenting out
 
 Don't worry, these get loaded just for lisp and clojure modes now.
 
+Oh and you also may want to modify ~/.emacs.d/init.el to remove the the *scratch* loading message.
+
 # build-ctags-git
 
 For better ctags support for OO javascript, add this to your `~/.ctags`
