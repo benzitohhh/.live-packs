@@ -23,10 +23,12 @@ Then, modify `~/.live-packs/immanuel_ben-pack/init.el`, setting
 appropriately for your machine.
 
 And finally, disable the live colour scheme
-(it's nice for lisp and clojure, super bright otherwise),
-so modify `~/.emacs.d/packs/live/colour-pack/init.el` commenting out
-`(load-file (concat (live-pack-lib-dir) "cyberpunk.el"))` and
-`(load-file (concat (live-pack-lib-dir) "gandalf.el"))`
+by modifying `~/.emacs.d/packs/live/colour-pack/init.el`, commenting out
+
+    ;;(load-file (concat (live-pack-lib-dir) "cyberpunk.el"))
+    ;;(load-file (concat (live-pack-lib-dir) "gandalf.el"))
+
+Don't worry, these get loaded just for lisp and clojure modes now.
 
 # build-ctags-git
 
