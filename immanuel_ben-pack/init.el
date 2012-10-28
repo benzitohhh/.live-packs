@@ -35,8 +35,21 @@
 ;; Don't break lines for me, please
 (setq-default truncate-lines t)
 
-;; colour-theme
+;; color-theme-buffer-local
+(live-add-pack-lib "color-theme-buffer-local")
+(require 'color-theme-buffer-local)
+(require 'load-theme-buffer-local)
+
+;; main colour-theme
 (load-theme 'deeper-blue)
+
+;; alternative color-themes
+(add-hook 'emacs-lisp-mode-hook
+          (lambda nil
+            (color-theme-buffer-local 'color-theme-cyberpunk (current-buffer))))
+(add-hook 'clojure-mode-hook
+          (lambda nil
+            (color-theme-buffer-local 'color-theme-cyberpunk (current-buffer))))
 
 ;; Magit
 (live-add-pack-lib "magit-1.1.1")
@@ -101,6 +114,7 @@
 ;; php-mode
 (live-add-pack-lib "php-mode")
 (require 'php-mode)
+(add-to-list 'auto-mode-alist '("\\.php" . html-mode))
 
 ;; less-css-mode
 (live-add-pack-lib "less-css-mode")

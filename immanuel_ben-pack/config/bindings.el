@@ -66,6 +66,7 @@
 (global-set-key (kbd "C-c n") 'cleanup-buffer)
 
 ;; html stuff
+(key-chord-define html-mode-map ";l" "\C-e\C-j")
 (add-hook 'sgml-mode-hook
           (lambda ()
             (require 'rename-sgml-tag)
