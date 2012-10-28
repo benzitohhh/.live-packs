@@ -25,10 +25,10 @@ appropriately for your machine.
 And finally, disable the live colour scheme
 by modifying `~/.emacs.d/packs/live/colour-pack/init.el`, commenting out
 
-    ;;(load-file (concat (live-pack-lib-dir) "cyberpunk.el"))
-    ;;(load-file (concat (live-pack-lib-dir) "gandalf.el"))
+    ;(color-theme-cyberpunk)
+    ;(set-cursor-color "yellow")
 
-Don't worry, these get loaded just for lisp and clojure modes now.
+Don't worry, these will get loaded for lisp and clojure modes, just not for the other modes.
 
 Oh and you also may want to modify ~/.emacs.d/init.el to remove the the *scratch* loading message.
 
