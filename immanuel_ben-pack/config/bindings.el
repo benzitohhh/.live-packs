@@ -66,10 +66,10 @@
 (global-set-key (kbd "C-c n") 'cleanup-buffer)
 
 ;; html stuff
-(key-chord-define html-mode-map ";l" "\C-e\C-j")
 (add-hook 'sgml-mode-hook
           (lambda ()
             (require 'rename-sgml-tag)
+            (key-chord-define sgml-mode-map ";l" "\C-e\C-j")
             (define-key sgml-mode-map (kbd "C-c C-r") 'rename-sgml-tag)))
 (add-hook 'sgml-mode-hook 'zencoding-mode)
 (eval-after-load 'zencoding-mode

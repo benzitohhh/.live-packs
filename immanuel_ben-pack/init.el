@@ -56,6 +56,12 @@
 (require 'magit)
 (global-set-key (kbd "s-r") 'magit-status)
 
+;; monky (mercurial support)
+(live-add-pack-lib "monky")
+(require 'monky)
+;; Add the below if monky is slow
+;;(setq monky-process-type 'cmdserver)
+
 ;; build-ctags-git
 (live-add-pack-lib "build-ctags-git")
 (require 'build-ctags-git)
