@@ -88,9 +88,9 @@ The above should modify auto-complete-config.el (removing one line, and adding 5
 
 ## ac vs yas conflict 2
 
-Yas overrides ac's tab binding. A workaround is to modify `auto-complete.el`, for example binding to C-`:
+Yas overrides ac's tab binding. As workaround, ac-expand is bound to C-`:
 
-    (define-key map (kbd "C-`") 'ac-expand)
+    (global-set-key (kbd "C-`") 'ac-expand)
 
 # "new" html
 
