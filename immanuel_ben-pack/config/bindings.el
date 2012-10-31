@@ -16,6 +16,9 @@
 ;; Set binding for opening recent files
 (global-set-key "\C-x\ \w" 'recentf-open-files)
 
+;; Autocomplete
+(global-set-key (kbd "C-`") 'ac-expand)
+
 ;; iy-go-to-char - like f in Vim
 (global-set-key (kbd "M-m") 'iy-go-to-char)
 (global-set-key (kbd "M-M") 'iy-go-to-char-backward)

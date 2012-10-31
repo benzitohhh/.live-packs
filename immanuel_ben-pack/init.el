@@ -3,13 +3,16 @@
 ;; User this file to initiate the pack configuration.
 ;; See README for more information.
 
+;; Emacs shell reads ~/.bashrc by default, so on OSX do:
+;;    ln -s .bash_profile .bashrc
+
 ;; Set default emacs C source directory
 (setq source-directory "/usr/local/emacs/emacs-24.2")
 ;(setq source-directory "/Users/beni/usr/local/emacs/emacs-24.2")
 
 ;; Git support
-(add-to-list 'load-path "/usr/local/git/contrib/emacs")
-;(add-to-list 'load-path "/Users/beni/usr/local/git/contrib/emacs")
+;(add-to-list 'load-path "/usr/local/git/contrib/emacs")
+(add-to-list 'load-path "/Users/beni/usr/local/git/contrib/emacs")
 (require 'git)
 (require 'git-blame)
 
@@ -19,12 +22,12 @@
 (autoload 'ack "full-ack" nil t)
 (autoload 'ack-find-same-file "full-ack" nil t)
 (autoload 'ack-find-file "full-ack" nil t)
-;(setq ack-executable "/Users/beni/usr/local/bin/ack")
-(setq ack-executable "/usr/local/bin/ack")
+(setq ack-executable "/Users/beni/usr/local/bin/ack")
+;(setq ack-executable "/usr/local/bin/ack")
 
 ;; default directory
-;(setq default-directory "/Users/beni/LOreal/Prototypes/Platform/base/" )
-(setq default-directory "~/Desktop/")
+(setq default-directory "/Users/beni/LOreal/Prototypes/Platform/base/" )
+;(setq default-directory "~/Desktop/")
 
 ;; set indent-level for html
 (setq sgml-basic-offset 4)
