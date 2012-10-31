@@ -2,7 +2,6 @@
 # name: fun
 # contributor: David Miller <david@deadpansincerity.com>
 # --
-/** $1 */
-function ${2:my_function}( ${3:args} ){
+function ${1:}(${2:}){
     $0
 }

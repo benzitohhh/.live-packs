@@ -26,6 +26,9 @@
 ;(setq default-directory "/Users/beni/LOreal/Prototypes/Platform/base/" )
 (setq default-directory "~/Desktop/")
 
+;; set indent-level for html
+(setq sgml-basic-offset 4)
+
 ;; make sure whitespace-cleanup not being used
 (remove-hook 'before-save-hook 'whitespace-cleanup)
 

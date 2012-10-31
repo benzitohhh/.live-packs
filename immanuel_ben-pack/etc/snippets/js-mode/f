@@ -1,0 +1,7 @@
+# -*- coding: utf-8; mode: snippet -*-
+# name: f
+# contributor: Ben Immanuel 
+# --
+function(${1:}){
+    $0
+}
