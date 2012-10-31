@@ -42,8 +42,8 @@
 ;;; js2-mode
 ;; ";;" (double tap) puts a ; at the end of the line
 (key-chord-define js2-mode-map ";;" "\C-e;")
-;; ";RET" (hit simultaneously) puts a ;RET at the end of the line
 (key-chord-define js2-mode-map ";l" "\C-e;\C-j")
+(key-chord-define js2-mode-map "kl" "\C-e\C-j")
 (add-hook 'js2-mode-hook
           (lambda ()
             (electric-pair-mode)
@@ -88,8 +88,8 @@
           (lambda ()
             ;; ";;" (double tap) puts a ; at the end of the line
             (key-chord-define css-mode-map ";;" "\C-e;")
-            ;; ";RET" (hit simultaneously) puts a ;RET at the end of the line
             (key-chord-define css-mode-map ";l" "\C-e;\C-j")
+            (key-chord-define js2-mode-map "kl" "\C-e\C-j")
             ;; electric pair
             (electric-pair-mode)))
 
@@ -98,6 +98,7 @@
           (lambda ()
             (require 'rename-sgml-tag)
             (key-chord-define sgml-mode-map ";l" "\C-e\C-j")
+            (key-chord-define js2-mode-map "kl" "\C-e\C-j")
             (define-key sgml-mode-map (kbd "C-c C-r") 'rename-sgml-tag)
             (zencoding-mode)
             (electric-pair-mode)))
