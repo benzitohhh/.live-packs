@@ -25,6 +25,20 @@
 (key-chord-define-global "fg" 'iy-go-to-char)
 (key-chord-define-global "df" 'iy-go-to-char-backward)
 
+;;; js-mode
+(add-hook 'js-mode-hook
+          (lambda ()
+            ;; ";;" (double tap) puts a ; at the end of the line
+            (key-chord-define js-mode-map ";;" "\C-e;")
+            ;; ";RET" (hit simultaneously) puts a ;RET at the end of the line
+            (key-chord-define js-mode-map ";l" "\C-e;\C-j")
+            ;; electric pair
+            (electric-pair-mode)
+            ;; Scan the file for nested code blocks
+            (imenu-add-menubar-index)
+            ;; Activate the folding mode
+            (hs-minor-mode t)))
+
 ;;; js2-mode
 ;; ";;" (double tap) puts a ; at the end of the line
 (key-chord-define js2-mode-map ";;" "\C-e;")
@@ -32,6 +46,7 @@
 (key-chord-define js2-mode-map ";l" "\C-e;\C-j")
 (add-hook 'js2-mode-hook
           (lambda ()
+            (electric-pair-mode)
             ;; Scan the file for nested code blocks
             (imenu-add-menubar-index)
             ;; Activate the folding mode
@@ -68,13 +83,24 @@
 ;; misc stuff
 (global-set-key (kbd "C-c n") 'cleanup-buffer)
 
+
+(add-hook 'css-mode-hook
+          (lambda ()
+            ;; ";;" (double tap) puts a ; at the end of the line
+            (key-chord-define css-mode-map ";;" "\C-e;")
+            ;; ";RET" (hit simultaneously) puts a ;RET at the end of the line
+            (key-chord-define css-mode-map ";l" "\C-e;\C-j")
+            ;; electric pair
+            (electric-pair-mode)))
+
 ;; html stuff
 (add-hook 'sgml-mode-hook
           (lambda ()
             (require 'rename-sgml-tag)
             (key-chord-define sgml-mode-map ";l" "\C-e\C-j")
-            (define-key sgml-mode-map (kbd "C-c C-r") 'rename-sgml-tag)))
-(add-hook 'sgml-mode-hook 'zencoding-mode)
+            (define-key sgml-mode-map (kbd "C-c C-r") 'rename-sgml-tag)
+            (zencoding-mode)
+            (electric-pair-mode)))
 (eval-after-load 'zencoding-mode
   '(progn
      (define-key zencoding-mode-keymap (kbd "C-j") nil)
@@ -93,10 +119,9 @@
 
 ;; multiple cursors
 (global-set-key (kbd "<f1>") 'set-rectangular-region-anchor)
-(global-set-key (kbd "<f5>") 'mc/mark-previous-like-this)
-(global-set-key (kbd "<f6>") 'mc/mark-next-like-this)
+(global-set-key (kbd "<f5>") 'mc/mark-next-like-this)
+(global-set-key (kbd "<f6>") 'mc/mark-more-like-this-extended)
 (global-set-key (kbd "<f7>") 'mc/mark-all-like-this)
-(global-set-key (kbd "<f8>") 'mc/mark-more-like-this-extended)
 
 ;; Hack for indents
 (defun shift-region (distance)
