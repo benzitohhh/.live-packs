@@ -45,8 +45,8 @@
             (concat "js file. calling scp: '" b "' to '" ben-scp-target-js-dir "'" ))
            (do-scp b ben-scp-target-js-dir))
 
-          ((equal (parent-dir-path (parent-dir-path b)) ben-scp-source-prototypes-dir)
-           (message "it's some module file!")
+          ((and (equal (parent-dir-path (parent-dir-path b)) ben-scp-source-prototypes-dir)
+                (equal (file-name-extension b) "php"))
            (let* ((derived-html-file             (concat (file-base-name b) ".html"))
                   (derived-html-file-full-path   (concat ben-scp-source-delivery-dir derived-html-file)))
              (message
@@ -55,6 +55,16 @@
              )
            )
 
+          ((and (equal (parent-dir-name b) "less")
+                (equal (parent-dir-path (parent-dir-path b)) ben-scp-source-base-dir))
+           (let* ((derived-css-dir               (concat (parent-dir-path (parent-dir-path b)) "css/"))
+                  (derived-css-file              (concat (file-base-name b) ".css"))
+                  (derived-css-file-full-path    (concat derived-css-dir derived-css-file)))
+             (message
+              (concat "global less file. calling scp: '" derived-css-file-full-path "' to '" ben-scp-target-css-dir "'" ))
+             (do-scp derived-css-file-full-path ben-scp-target-css-dir)))
+
           (t (message (concat "ben-scp error: type of file '" b "' not recognised"))))))
 
 (provide 'ben-scp)
+
