@@ -1,0 +1,22 @@
+# -*- coding: utf-8 -*-
+# name: mod
+# key: mod
+# group: LOreal
+# contributor: Ben Immanuel
+# --
+/**
+ * ${1:NAME} module
+ */
+(function(L, $, Modernizr) {
+
+    var beforeDocumentReady = function() {
+
+    };
+    
+    var afterDocumentReady = function () {
+        $0
+    };
+
+    L.registerModule(new Module(L, '$1', beforeDocumentReady, afterDocumentReady));
+
+}(Loreal || {}, jQuery, Modernizr));
