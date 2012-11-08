@@ -1,0 +1,5 @@
+# -*- coding: utf-8; mode: snippet -*-
+# name: k
+# contributor: Ben Immanuel 
+# --
+(global-set-key (kbd "${1:<f14>}") '${2:ack-find-file})$0
