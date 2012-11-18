@@ -21,8 +21,15 @@
   "return the base name of f, exluding path and extension"
   (file-name-nondirectory (file-name-sans-extension (buffer-file-name))))
 
-(defun do-scp (source target)
+(defun loreal-export ()
+  "calls export.php, which builds static files for export"
+  (message "calling exporter.php")
+  (shell-command "curl http://localhost/~beni/LOreal/base/exporter.php"))
+
+(defun do-scp (type source target)
   "scp source file to the target"
+  (message
+   (concat type " file. calling scp: '" source "' to '" target "'" ))
   (shell-command (concat "scp " source " " target)))
 
 (defun ben-scp ()
@@ -35,36 +42,42 @@
            (let* ((derived-css-dir               (concat (parent-dir-path (parent-dir-path b)) "css/"))
                   (derived-css-file              (concat (file-base-name b) ".css"))
                   (derived-css-file-full-path    (concat derived-css-dir derived-css-file)))
-             (message
-              (concat "less file. calling scp: '" derived-css-file-full-path "' to '" ben-scp-target-css-dir "'" ))
-             (do-scp derived-css-file-full-path ben-scp-target-css-dir)))
+             (do-scp "less" derived-css-file-full-path ben-scp-target-css-dir)))
 
           ((and (equal (parent-dir-name b) "js")
                 (equal (parent-dir-path (parent-dir-path (parent-dir-path b))) ben-scp-source-prototypes-dir))
-           (message
-            (concat "js file. calling scp: '" b "' to '" ben-scp-target-js-dir "'" ))
-           (do-scp b ben-scp-target-js-dir))
+           (do-scp "js" b ben-scp-target-js-dir))
 
           ((and (equal (parent-dir-path (parent-dir-path b)) ben-scp-source-prototypes-dir)
                 (equal (file-name-extension b) "php"))
            (let* ((derived-html-file             (concat (file-base-name b) ".html"))
                   (derived-html-file-full-path   (concat ben-scp-source-delivery-dir derived-html-file)))
-             (message
-              (concat "php file. calling scp: '" derived-html-file-full-path "' to '" ben-scp-target-base-dir "'" ))
-             (do-scp derived-html-file-full-path ben-scp-target-base-dir)
-             )
-           )
+             
+             (loreal-export)
+             (do-scp "php" derived-html-file-full-path ben-scp-target-base-dir)))
 
           ((and (equal (parent-dir-name b) "less")
                 (equal (parent-dir-path (parent-dir-path b)) ben-scp-source-base-dir))
            (let* ((derived-css-dir               (concat (parent-dir-path (parent-dir-path b)) "css/"))
                   (derived-css-file              (concat (file-base-name b) ".css"))
                   (derived-css-file-full-path    (concat derived-css-dir derived-css-file)))
-             (message
-              (concat "global less file. calling scp: '" derived-css-file-full-path "' to '" ben-scp-target-css-dir "'" ))
-             (do-scp derived-css-file-full-path ben-scp-target-css-dir)))
+             (do-scp "global less" derived-css-file-full-path ben-scp-target-css-dir)))
 
           (t (message (concat "ben-scp error: type of file '" b "' not recognised"))))))
+
+(defun ben-scp-module (mod)
+       "sends all files from the given module to remote server"
+       (interactive "ML'Oreal module-name: ")
+       (let ((files (list
+                      (concat mod ".html")
+                      (concat "css/" mod ".css")
+                      (concat "css/" mod ".medium.css")
+                      (concat "css/" mod ".large.css")
+                      (concat "js/"  mod ".js")
+                      )))
+         (loreal-export)
+         ;; TODO: scp each resulting file 
+         (message (mapconcat 'identity files ", "))))
 
 (provide 'ben-scp)
 
