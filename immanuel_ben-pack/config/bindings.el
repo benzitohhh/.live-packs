@@ -68,6 +68,12 @@
 (key-chord-define php-mode-map ";;" "\C-e;")
 ;; ";RET" (hit simultaneously) puts a ;RET at the end of the line
 (key-chord-define php-mode-map ";l" "\C-e;\C-j")
+(add-hook 'php-mode-hook
+          (lambda ()
+            (setq c-basic-offset 4)
+            ;(c-set-offset 'topmost-intro 4)
+            ;(c-set-offset 'cpp-macro -4)
+            ))
 
 ;; python-mode
 (require 'python)

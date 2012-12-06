@@ -1,0 +1,4 @@
+#contributor : Ben Immanuel 
+#name : erra
+# --
+error_log(print_r(${1:someArray}, true));$0
