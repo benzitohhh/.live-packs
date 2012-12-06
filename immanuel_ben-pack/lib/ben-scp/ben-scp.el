@@ -65,6 +65,11 @@
 
           (t (message (concat "ben-scp error: type of file '" b "' not recognised"))))))
 
+(defun ben-scp-p13js ()
+  "temporary helper to scp p13 js for facebook testing"
+  (interactive)
+  (shell-command "cd /Users/beni/LOreal/Prototypes/Platform; scp p13/js/page.js devlorealreview@stormshadow.dmz.ny.rga.com:advancedhaircare/js/;"))
+
 (defun ben-scp-module (mod)
        "sends all files from the given module to remote server"
        (interactive "ML'Oreal module-name: ")

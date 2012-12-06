@@ -1,0 +1,11 @@
+# -*- coding: utf-8 -*-
+# name: pic
+# --
+<div class="data-picture" data-picture data-alt="${2:}">
+    <div data-src="prototypes/${3:}/img/$3/${4:}-large.jpg"></div>
+    <div data-src="prototypes/$3/img/$3/$4-small.jpg" data-media="(max-width: 20em)"></div>
+    <div data-src="prototypes/$3/img/$3/$4-small-retina.jpg" data-media="(min-device-pixel-ratio: 1.5), (-webkit-min-device-pixel-ratio: 1.5)"></div>
+    <div data-src="prototypes/$3/img/$3/$4-medium.jpg" data-media="(min-width: 48em)"></div>
+    <div data-src="prototypes/$3/img/$3/$4-large.jpg" data-media="(min-width: 75em)"></div>
+    <noscript><img src="prototypes/$3/img/$3/$4-large.jpg" alt="$2"></noscript>
+</div>$0

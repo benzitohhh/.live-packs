@@ -1,0 +1,4 @@
+# -*- coding: utf-8 -*-
+# name: inc
+# --
+<?php include("includes/${1:}.php");?>$0

@@ -509,6 +509,13 @@ DIRECTORY is the root directory.  If called interactively, it is determined by
   (interactive (ack-interactive))
   (ack-run directory regexp pattern))
 
+(defun ben-ack (pattern &optional regexp directory)
+  "Hack to pass arguments to ack.
+Splits pattern by space, and passes all but last as args.
+Some example inputs: '--php asdasdad' or '-l -i asdasdasds'"
+  (interactive (ack-interactive))
+  (ack-run directory regexp pattern))
+
 (defun ack-read-file (prompt choices)
   (if ido-mode
       (ido-completing-read prompt choices nil t)
