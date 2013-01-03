@@ -27,7 +27,7 @@
 
 ;; default directory
 ;(setq default-directory "~/Desktop/")
-(setq default-directory "/Users/beni/LOreal/Prototypes/Platform/base/" )
+(setq default-directory "/Volumes/PwC-VM/drupal/" )
 
 ;; set indent-level for html
 (setq sgml-basic-offset 4)
@@ -118,10 +118,10 @@
 ;(live-add-pack-lib "zenburn-theme")
 ;(require 'zenburn-theme)
 
-;; js-mode    (as opposed to js2-mode below)
+;; js-mode    (as opposed to js2-mode)
 ;(add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
 
-;; js2-mode   (as opposed to js-mode above)
+;; js2-mode   (as opposed to js-mode)
 (live-add-pack-lib "js2-mode")
 (require 'js2-mode)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
@@ -130,6 +130,7 @@
 (live-add-pack-lib "php-mode")
 (require 'php-mode)
 (add-to-list 'auto-mode-alist '("\\.php" . html-mode))
+(add-to-list 'auto-mode-alist '("\\.module" . php-mode))
 
 ;; less-css-mode
 (live-add-pack-lib "less-css-mode")
@@ -152,13 +153,6 @@
 ;;              (indent-for-tab-command)
 ;;              (if (looking-back "^\s*")
 ;;                  (back-to-indentation))))))))
-
-(defun beautify-json ()
-  (interactive)
-  (let ((b (if mark-active (min (point) (mark)) (point-min)))
-        (e (if mark-active (max (point) (mark)) (point-max))))
-    (shell-command-on-region b e
-     "python -mjson.tool" (current-buffer) t)))
 
 ;; js-comint
 ;; (live-add-pack-lib "js-comint")
