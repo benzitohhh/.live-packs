@@ -29,6 +29,9 @@
 ;(setq default-directory "~/Desktop/")
 (setq default-directory "/Volumes/PwC-VM/drupal/" )
 
+;; visit tags
+(visit-tags-table "/Volumes/PwC-VM/TAGS")
+
 ;; set indent-level for html
 (setq sgml-basic-offset 4)
 
