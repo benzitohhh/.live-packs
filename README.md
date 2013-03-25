@@ -10,17 +10,16 @@ Otherwise
     git submodule init
     git submodule update
 
-Then modify your `~/.emacs-live.el`, adding this line:
+Create an environment file (i.e. `~/.live-packs/immanuel_ben-pack/env/not-so-shiny-now.el` ),
+setting variables appropriately.
 
+Then modify your `~/.emacs-live.el`, so that it loads environment, and the pack itself:
+
+    ;; load environment
+    (load "~/.live-packs/immanuel_ben-pack/env/not-so-shiny-now.el" )
+    
+    ;; load packs
     (live-add-packs '(~/.live-packs/immanuel_ben-pack))
-
-Then, modify `~/.live-packs/immanuel_ben-pack/init.el`, setting
-
-1. `source-directory`
-2. `Git's contrib/git.el`
-3. `ack-executable`
-
-appropriately for your machine.
 
 And finally, disable the live colour scheme
 by modifying `~/.emacs.d/packs/live/colour-pack/init.el`, commenting out
