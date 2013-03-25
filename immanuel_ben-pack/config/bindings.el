@@ -24,11 +24,14 @@
 ;; ack
 (global-set-key (kbd "<f15>") 'ack)
 
+;; git
+(global-set-key (kbd "s-r") 'magit-status)
+
 ;; Mercurial
-(global-set-key (kbd "<f16>") 'monky-status)
-(global-set-key (kbd "<f17>") 'monky-log)
-(global-set-key (kbd "<f18>") 'monky-pull)
-(global-set-key (kbd "<f19>") 'monky-push)
+;(global-set-key (kbd "<f16>") 'monky-status)
+;(global-set-key (kbd "<f17>") 'monky-log)
+;(global-set-key (kbd "<f18>") 'monky-pull)
+;(global-set-key (kbd "<f19>") 'monky-push)
 
 ;; iy-go-to-char - like f in Vim
 (global-set-key (kbd "M-m") 'iy-go-to-char)
@@ -95,55 +98,6 @@
             (electric-pair-mode)
             (local-set-key (kbd "M-r") 'break-php-undo-refresh)
             ))
-(defun break-php-undo-refresh ()
-  "For some reason (probably caching), drupal does not always load modified php.
-   This workaround causes a compilation error, which seems to clear cache."
-  (interactive)
-  ;(goto-char (- (point-max) 4))
-  ;(insert "xxxxx")
-  ;(save-buffer)
-  (del-curl-refresh)
-
-  ;(undo-tree-undo)
-  ;(save-buffer)
-  ;(del-curl-refresh)
-  )
-(defun del-curl-refresh ()
-  ""
-  (interactive)
-  (del-curl)
-  (ben-refresh)
-  )
-(defun del-curl ()
-  "Deletes file, calls curl"
-  (interactive)
-  (let ((b    "error.log")
-        (path "/Volumes/PwC-VM/")
-        ;(url  "http://192.168.104.100/content/video1")
-       ;(url  "http://192.168.104.100/webservice/articles/5")
-        (url "http://192.168.104.100/webservice/mypwc/?region=US&role=C-Suite&topic[]=70&topic[]=69")
-        ;(url "http://192.168.104.100/webservice/mypwc/?region=US&role=C-Suite")
-        )
-    ;; delete
-    (shell-command (concat "rm -rf " path b))  
-    (sleep-for 2)
-    ;; curl
-    (shell-command (concat "curl -g '" url "'"))
-    (sleep-for 1)
-    ))
-(defun ben-refresh ()
-  "refresh a buffer"
-  (interactive)
-  (let ((b    "error.log")
-        (path "/Volumes/PwC-VM/")
-        )
-    (if (file-exists-p (concat path b))
-      (with-current-buffer (get-buffer b)
-        (revert-buffer t t))
-      (message (concat "File " b " does not exist. Check page in browser! Perhaps there are no error_log() statements in the php, or they are not being called?"))
-      )
-    )
-  )
 
 ;; python-mode
 (require 'python)

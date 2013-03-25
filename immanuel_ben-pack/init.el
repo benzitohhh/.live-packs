@@ -6,31 +6,12 @@
 ;; Emacs shell reads ~/.bashrc by default, so on OSX do:
 ;;    ln -s .bash_profile .bashrc
 
-;; Set default emacs C source directory
-;(setq source-directory "/usr/local/emacs/emacs-24.2")
-(setq source-directory "/Users/beni/usr/local/emacs/emacs-24.2")
-
-;; Git support
-;(add-to-list 'load-path "/usr/local/git/contrib/emacs")
-(add-to-list 'load-path "/Users/beni/usr/local/git/contrib/emacs")
-(require 'git)
-(require 'git-blame)
-
 ;; full-ack
 (live-add-pack-lib "full-ack")
 (autoload 'ack-same "full-ack" nil t)
 (autoload 'ack "full-ack" nil t)
 (autoload 'ack-find-same-file "full-ack" nil t)
 (autoload 'ack-find-file "full-ack" nil t)
-;(setq ack-executable "/usr/local/bin/ack")
-(setq ack-executable "/Users/beni/usr/local/bin/ack")
-
-;; default directory
-;(setq default-directory "~/Desktop/")
-(setq default-directory "/Volumes/PwC-VM/drupal/" )
-
-;; visit tags
-(visit-tags-table "/Volumes/PwC-VM/TAGS")
 
 ;; set indent-level for html
 (setq sgml-basic-offset 4)
@@ -55,6 +36,10 @@
 ;; main colour-theme
 (load-theme 'deeper-blue)
 
+;; zenburn-theme
+;(live-add-pack-lib "zenburn-theme")
+;(require 'zenburn-theme)
+
 ;; alternative color-themes
 (add-hook 'emacs-lisp-mode-hook
           (lambda nil
@@ -63,14 +48,13 @@
           (lambda nil
             (color-theme-buffer-local 'color-theme-cyberpunk (current-buffer))))
 
-;; Magit
-(live-add-pack-lib "magit-1.1.1")
-(require 'magit)
-(global-set-key (kbd "s-r") 'magit-status)
+;; Magit (git support)
+;(require 'git)
+;(require 'git-blame)
 
 ;; monky (mercurial support)
-(live-add-pack-lib "monky")
-(require 'monky)
+;;(live-add-pack-lib "monky")
+;;(require 'monky)
 ;; Add the below if monky is slow
 ;;(setq monky-process-type 'cmdserver)
 
@@ -81,10 +65,6 @@
 ;; etags-select
 (live-add-pack-lib "etags-select")
 (require 'etags-select)
-
-;; ben-scp
-(live-add-pack-lib "ben-scp")
-(require 'ben-scp)
 
 ;; shell-command
 (live-add-pack-lib "shell-command")
@@ -112,22 +92,8 @@
 (live-add-pack-lib "zencoding")
 (require 'zencoding-mode)
 
-;; textmate
-;(live-add-pack-lib "textmate")
-;(require 'textmate)
-;(textmate-mode)
-
-;; zenburn-theme
-;(live-add-pack-lib "zenburn-theme")
-;(require 'zenburn-theme)
-
-;; js-mode    (as opposed to js2-mode)
-;(add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
-
-;; js2-mode   (as opposed to js-mode)
-(live-add-pack-lib "js2-mode")
-(require 'js2-mode)
-(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+;;(add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
+;;(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
 ;; php-mode
 (live-add-pack-lib "php-mode")
@@ -156,21 +122,6 @@
 ;;              (indent-for-tab-command)
 ;;              (if (looking-back "^\s*")
 ;;                  (back-to-indentation))))))))
-
-;; js-comint
-;; (live-add-pack-lib "js-comint")
-;; (require 'js-comint)
-;; Use node as our repl
-(setq inferior-js-program-command "node")
-(setq inferior-js-mode-hook
-      (lambda ()
-        ;; We like nice colors
-        (ansi-color-for-comint-mode-on)
-        ;; Deal with some prompt nonsense
-        (add-to-list 'comint-preoutput-filter-functions
-                     (lambda (output)
-                       (replace-regexp-in-string ".*1G\.\.\..*5G" "..."
-                                                 (replace-regexp-in-string ".*1G.*3G" ">" output))))))
 
 ;; Load bindings config
 (live-load-config-file "bindings.el")
