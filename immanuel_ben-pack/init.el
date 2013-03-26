@@ -33,13 +33,6 @@
 (require 'color-theme-buffer-local)
 (require 'load-theme-buffer-local)
 
-;; main colour-theme
-(load-theme 'deeper-blue)
-
-;; zenburn-theme
-;(live-add-pack-lib "zenburn-theme")
-;(require 'zenburn-theme)
-
 ;; alternative color-themes
 (add-hook 'emacs-lisp-mode-hook
           (lambda nil
@@ -47,6 +40,13 @@
 (add-hook 'clojure-mode-hook
           (lambda nil
             (color-theme-buffer-local 'color-theme-cyberpunk (current-buffer))))
+
+;; zenburn-theme
+(live-add-pack-lib "zenburn-theme")
+(require 'zenburn-theme)
+
+;; blue colour-theme
+;(load-theme 'deeper-blue)
 
 ;; Magit (git support)
 ;(require 'git)
@@ -76,29 +76,21 @@
 (live-add-pack-lib "misc")
 (require 'misc)
 
-;; expand-region
-(live-add-pack-lib "expand-region")
-(require 'expand-region)
-
 ;; mark-multiple
 (live-add-pack-lib "mark-multiple")
 (require 'mark-multiple)
-
-;; multiple-cursors
-(live-add-pack-lib "multiple-cursors")
-(require 'multiple-cursors)
 
 ;; zencoding
 (live-add-pack-lib "zencoding")
 (require 'zencoding-mode)
 
 ;;(add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
-;;(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
 ;; php-mode
 (live-add-pack-lib "php-mode")
 (require 'php-mode)
-(add-to-list 'auto-mode-alist '("\\.php" . html-mode))
+(add-to-list 'auto-mode-alist '("\\.php" . php-mode))
 (add-to-list 'auto-mode-alist '("\\.module" . php-mode))
 
 ;; less-css-mode
