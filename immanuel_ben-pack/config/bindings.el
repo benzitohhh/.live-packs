@@ -80,7 +80,6 @@
         (e (if mark-active (max (point) (mark)) (point-max))))
     (shell-command-on-region b e
      "python -mjson.tool" (current-buffer) t)))
-(global-set-key (kbd "C-x j") 'beautify-json)
 
 ;;; php-mode
 ;; ";;" (double tap) puts a ; at the end of the line
@@ -100,22 +99,38 @@
             ))
 
 ;; python-mode
+
 (require 'python)
-(key-chord-define python-mode-map ";l" "\C-e\C-j")
-(key-chord-define python-mode-map ";'" "\C-e:\C-j")
-(add-hook 'python-mode-hook
-     (lambda ()
-      (define-key python-mode-map "\"" 'electric-pair)
-      (define-key python-mode-map "\'" 'electric-pair)
-      (define-key python-mode-map "(" 'electric-pair)
-      (define-key python-mode-map "[" 'electric-pair)
-      (define-key python-mode-map "{" 'electric-pair)))
+
+(defun annotate-pdb ()
+  (interactive)
+  (highlight-lines-matching-regexp "import pdb")
+  (highlight-lines-matching-regexp "pdb.set_trace()"))
+
+(defun python-add-breakpoint ()
+  (interactive)
+  (newline-and-indent)
+  (insert "import ipdb; ipdb.set_trace()")
+  (newline-and-indent)
+  (highlight-lines-matching-regexp "^[ ]*import ipdb; ipdb.set_trace()"))
+
 (defun electric-pair ()
   "Insert character pair without sournding spaces"
   (interactive)
   (let (parens-require-spaces)
     (insert-pair)))
 
+(add-hook 'python-mode-hook
+     (lambda ()
+       (key-chord-define python-mode-map ";l" "\C-e\C-j")
+       (key-chord-define python-mode-map ";'" "\C-e:\C-j")
+       (define-key python-mode-map "\"" 'electric-pair)
+       (define-key python-mode-map "\'" 'electric-pair)
+       (define-key python-mode-map "(" 'electric-pair)
+       (define-key python-mode-map "[" 'electric-pair)
+       (define-key python-mode-map "{" 'electric-pair)
+       (define-key python-mode-map (kbd "C-c C-t") 'python-add-breakpoint)
+       (annotate-pdb)))
 
 ;; code folding
 (global-set-key (kbd "C-c C-h") 'hs-toggle-hiding)
@@ -139,7 +154,7 @@
           (lambda ()
             (require 'rename-sgml-tag)
             (key-chord-define sgml-mode-map ";l" "\C-e\C-j")
-            (key-chord-define js2-mode-map "kl" "\C-e\C-j")
+            (key-chord-define sgml-mode-map "kl" "\C-e\C-j")
             (define-key sgml-mode-map (kbd "C-c C-r") 'rename-sgml-tag)
             (zencoding-mode)
             (electric-pair-mode)))
