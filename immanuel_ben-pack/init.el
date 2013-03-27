@@ -28,6 +28,9 @@
 ;; Don't break lines for me, please
 (setq-default truncate-lines t)
 
+;; Set ediff to split vertically (default is horizontal)
+(setq ediff-split-window-function 'split-window-horizontally)
+
 ;; color-theme-buffer-local
 (live-add-pack-lib "color-theme-buffer-local")
 (require 'color-theme-buffer-local)
