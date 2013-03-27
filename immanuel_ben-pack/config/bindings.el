@@ -16,6 +16,9 @@
 ;; Set binding for opening recent files
 (global-set-key "\C-x\ \w" 'recentf-open-files)
 
+;; find file (prompts for start dir, then searches recursively)
+(global-set-key "\C-x\ f" 'find-name-dired)
+
 ;; Autocomplete
 (global-set-key (kbd "C-`") 'ac-expand)
 
