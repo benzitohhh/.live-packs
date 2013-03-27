@@ -39,6 +39,9 @@
 (key-chord-define-global "fg" 'iy-go-to-char)
 (key-chord-define-global "df" 'iy-go-to-char-backward)
 
+;; etags-select-find-tag-at-point
+(global-set-key (kbd "M-.") 'etags-select-find-tag-at-point)
+
 ;; align to equals
 (defun align-to-equals (begin end)
   "Align region to equal signs"
