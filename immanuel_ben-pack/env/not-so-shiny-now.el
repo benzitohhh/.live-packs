@@ -7,6 +7,9 @@
 ;; full-ack
 (setq ack-executable "/usr/local/bin/ack")
 
+;; Racket (scheme)
+(setq scheme-program-name "/Applications/Racketv5.3.3/bin/mzscheme")
+
 ;; python executable (i.e as of March 2013, ipython emacs osx does not seem to work)
 ;;(setq python-shell-interpreter "/usr/local/bin/ipython")
 
