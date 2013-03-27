@@ -54,24 +54,16 @@
             ;; ";RET" (hit simultaneously) puts a ;RET at the end of the line
             (key-chord-define js-mode-map ";l" "\C-e;\C-j")
             ;; electric pair
-            (electric-pair-mode)
-            ;; Scan the file for nested code blocks
-            (imenu-add-menubar-index)
-            ;; Activate the folding mode
-            (hs-minor-mode t)))
+            (electric-pair-mode)))
 
 ;;; js2-mode
 ;; ";;" (double tap) puts a ; at the end of the line
-(key-chord-define js2-mode-map ";;" "\C-e;")
-(key-chord-define js2-mode-map ";l" "\C-e;\C-j")
-(key-chord-define js2-mode-map "kl" "\C-e\C-j")
 (add-hook 'js2-mode-hook
           (lambda ()
-            (electric-pair-mode)
-            ;; Scan the file for nested code blocks
-            (imenu-add-menubar-index)
-            ;; Activate the folding mode
-            (hs-minor-mode t)))
+            (key-chord-define js2-mode-map ";;" "\C-e;")
+            (key-chord-define js2-mode-map ";l" "\C-e;\C-j")
+            (key-chord-define js2-mode-map "kl" "\C-e\C-j")
+            (electric-pair-mode)))
 
 ;; beautify json
 (defun beautify-json ()
@@ -82,11 +74,6 @@
      "python -mjson.tool" (current-buffer) t)))
 
 ;;; php-mode
-;; ";;" (double tap) puts a ; at the end of the line
-(key-chord-define php-mode-map ";;" "\C-e;")
-;; ";RET" (hit simultaneously) puts a ;RET at the end of the line
-(key-chord-define php-mode-map ";l" "\C-e;\C-j")
-(key-chord-define php-mode-map "kl" "\C-e\C-j")
 (add-hook 'php-mode-hook
           (lambda ()
             (setq indent-tabs-mode nil
@@ -96,7 +83,11 @@
             (c-set-offset 'cpp-macro -8)
             (electric-pair-mode)
             (local-set-key (kbd "M-r") 'break-php-undo-refresh)
-            ))
+            ;; ";;" (double tap) puts a ; at the end of the line
+            (key-chord-define php-mode-map ";;" "\C-e;")
+            ;; ";RET" (hit simultaneously) puts a ;RET at the end of the line
+            (key-chord-define php-mode-map ";l" "\C-e;\C-j")
+            (key-chord-define php-mode-map "kl" "\C-e\C-j")))
 
 ;; python-mode
 
@@ -128,11 +119,12 @@
        (define-key python-mode-map "[" 'electric-pair)
        (define-key python-mode-map "{" 'electric-pair)
        (define-key python-mode-map (kbd "C-c C-t") 'python-add-breakpoint)
+       (setq outline-regexp " *\\(def \\|clas\\|#hea\\)")
        (annotate-pdb)))
 
 ;; code folding
-(global-set-key (kbd "C-c C-h") 'hs-toggle-hiding)
-(global-set-key (kbd "C-c C-j") 'hs-show-all)
+(global-set-key (kbd "C-c C-h") 'hide-sublevels)
+(global-set-key (kbd "C-c C-a") 'show-all)
 
 ;; misc stuff
 (global-set-key (kbd "C-c n") 'cleanup-buffer)
