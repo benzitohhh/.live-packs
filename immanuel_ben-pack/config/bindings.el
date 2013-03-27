@@ -77,17 +77,19 @@
 (add-hook 'php-mode-hook
           (lambda ()
             (setq indent-tabs-mode nil
-                  tab-width 8
-                  c-basic-offset 8)
-            (c-set-offset 'topmost-intro 8)
-            (c-set-offset 'cpp-macro -8)
+                  tab-width 4
+                  c-basic-offset 4)
+            (c-set-offset 'topmost-intro 4)
+            (c-set-offset 'cpp-macro -4)
             (electric-pair-mode)
             (local-set-key (kbd "M-r") 'break-php-undo-refresh)
             ;; ";;" (double tap) puts a ; at the end of the line
             (key-chord-define php-mode-map ";;" "\C-e;")
             ;; ";RET" (hit simultaneously) puts a ;RET at the end of the line
             (key-chord-define php-mode-map ";l" "\C-e;\C-j")
-            (key-chord-define php-mode-map "kl" "\C-e\C-j")))
+            (key-chord-define php-mode-map "kl" "\C-e\C-j")
+            (setq outline-regexp " *\\(private funct\\|public funct\\|funct\\|class\\|#head\\)")
+            ))
 
 ;; python-mode
 
