@@ -31,6 +31,9 @@ Don't worry, these will get loaded for lisp and clojure modes, just not for the 
 
 Oh and you also may want to modify ~/.emacs.d/init.el to remove the the *scratch* loading message.
 
+Plus there are a bunch of default bindings that can be disabled in
+`~/.emacs.d/packs/live/bindings-pack/config/default-bindings.el`, for example ace-jump.
+
 # build-ctags-git
 
 For better ctags support for OO javascript, add this to your `~/.ctags`
