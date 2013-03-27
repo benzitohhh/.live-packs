@@ -100,8 +100,6 @@
 
 ;; python-mode
 
-(require 'python)
-
 (defun annotate-pdb ()
   (interactive)
   (highlight-lines-matching-regexp "import pdb")
@@ -110,9 +108,9 @@
 (defun python-add-breakpoint ()
   (interactive)
   (newline-and-indent)
-  (insert "import ipdb; ipdb.set_trace()")
+  (insert "import pdb; pdb.set_trace()")
   (newline-and-indent)
-  (highlight-lines-matching-regexp "^[ ]*import ipdb; ipdb.set_trace()"))
+  (annotate-pdb))
 
 (defun electric-pair ()
   "Insert character pair without sournding spaces"
