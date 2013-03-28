@@ -43,6 +43,9 @@
 (add-hook 'clojure-mode-hook
           (lambda nil
             (color-theme-buffer-local 'color-theme-cyberpunk (current-buffer))))
+(add-hook 'scheme-mode-hook
+          (lambda nil
+            (color-theme-buffer-local 'color-theme-cyberpunk (current-buffer))))
 
 ;; zenburn-theme
 (live-add-pack-lib "zenburn-theme")
