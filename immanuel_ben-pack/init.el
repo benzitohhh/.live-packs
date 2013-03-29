@@ -36,33 +36,12 @@
 (require 'color-theme-buffer-local)
 (require 'load-theme-buffer-local)
 
-;; alternative color-themes
-(add-hook 'emacs-lisp-mode-hook
-          (lambda nil
-            (color-theme-buffer-local 'color-theme-cyberpunk (current-buffer))))
-(add-hook 'clojure-mode-hook
-          (lambda nil
-            (color-theme-buffer-local 'color-theme-cyberpunk (current-buffer))))
-(add-hook 'scheme-mode-hook
-          (lambda nil
-            (color-theme-buffer-local 'color-theme-cyberpunk (current-buffer))))
-
 ;; zenburn-theme
 (live-add-pack-lib "zenburn-theme")
 (require 'zenburn-theme)
 
 ;; blue colour-theme
 ;(load-theme 'deeper-blue)
-
-;; Magit (git support)
-;(require 'git)
-;(require 'git-blame)
-
-;; monky (mercurial support)
-;;(live-add-pack-lib "monky")
-;;(require 'monky)
-;; Add the below if monky is slow
-;;(setq monky-process-type 'cmdserver)
 
 ;; build-ctags-git
 (live-add-pack-lib "build-ctags-git")
@@ -81,6 +60,10 @@
 ;; misc
 (live-add-pack-lib "misc")
 (require 'misc)
+
+;; idle-highlight-mode
+(live-add-pack-lib "idle-highlight-mode")
+(require 'idle-highlight-mode)
 
 ;; mark-multiple
 (live-add-pack-lib "mark-multiple")

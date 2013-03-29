@@ -16,3 +16,6 @@
 [submodule "immanuel_ben-pack/lib/monky"]
 	path = immanuel_ben-pack/lib/monky
 	url = git://github.com/ananthakumaran/monky.git
+[submodule "immanuel_ben-pack/lib/idle-highlight-mode"]
+	path = immanuel_ben-pack/lib/idle-highlight-mode
+	url = https://github.com/nonsequitur/idle-highlight-mode.git
