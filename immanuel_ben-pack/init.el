@@ -22,6 +22,9 @@
 ;; make sure whitespace-cleanup not being used
 (remove-hook 'before-save-hook 'whitespace-cleanup)
 
+;; set colours for whitespace-mode
+(setq whitespace-style (quote (spaces tabs newline space-mark tab-mark newline-mark)))
+
 ;; prevent files opened from finder opening in new frame
 (setq ns-pop-up-frames nil)
 
