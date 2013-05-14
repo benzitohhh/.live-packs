@@ -97,14 +97,21 @@
 (add-hook 'emacs-lisp-mode-hook
           (lambda nil
             (idle-highlight-mode t)
+            ;; ";l" (hit simultaneously) puts a RET at the end of the line
+            (key-chord-define emacs-lisp-mode-map ";l" "\C-e\C-j")
             (color-theme-buffer-local 'color-theme-cyberpunk (current-buffer))))
 (add-hook 'clojure-mode-hook
           (lambda nil
             (idle-highlight-mode t)
+            ;; ";l" (hit simultaneously) puts a RET at the end of the line
+            (key-chord-define clojure-mode-map ";l" "\C-e\C-j")
             (color-theme-buffer-local 'color-theme-cyberpunk (current-buffer))))
 (add-hook 'scheme-mode-hook
           (lambda nil
+            (turn-on-eldoc-mode)
             (idle-highlight-mode t)
+            ;; ";l" (hit simultaneously) puts a RET at the end of the line
+            (key-chord-define scheme-mode-map ";l" "\C-e\C-j")
             (color-theme-buffer-local 'color-theme-cyberpunk (current-buffer))))
 
 ;;; js-mode
@@ -113,7 +120,7 @@
             (idle-highlight-mode t)
             ;; ";;" (double tap) puts a ; at the end of the line
             (key-chord-define js-mode-map ";;" "\C-e;")
-            ;; ";RET" (hit simultaneously) puts a ;RET at the end of the line
+            ;; ";l" (hit simultaneously) puts a ;RET at the end of the line
             (key-chord-define js-mode-map ";l" "\C-e;\C-j")
             ;; electric pair
             (electric-pair-mode)))
