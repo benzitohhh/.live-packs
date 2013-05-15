@@ -108,6 +108,9 @@
             (color-theme-buffer-local 'color-theme-cyberpunk (current-buffer))))
 (add-hook 'scheme-mode-hook
           (lambda nil
+            ;; scheme-complete and eldoc integration
+            (make-local-variable 'eldoc-documentation-function)
+            (setq eldoc-documentation-function 'scheme-get-current-symbol-info)
             (turn-on-eldoc-mode)
             (idle-highlight-mode t)
             ;; ";l" (hit simultaneously) puts a RET at the end of the line

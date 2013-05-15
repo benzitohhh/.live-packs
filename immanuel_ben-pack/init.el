@@ -76,6 +76,10 @@
 (live-add-pack-lib "zencoding")
 (require 'zencoding-mode)
 
+;; scheme-complete
+(live-add-pack-lib "scheme-complete")
+(require 'scheme-complete)
+
 ;;(add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
