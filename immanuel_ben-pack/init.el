@@ -80,6 +80,13 @@
 (live-add-pack-lib "scheme-complete")
 (require 'scheme-complete)
 
+(defun pretty-lambdas ()
+    (font-lock-add-keywords
+     nil `(("(\\(lambda\\>\\)"
+            (0 (progn (compose-region (match-beginning 1) (match-end 1)
+                                      ,(make-char 'greek-iso8859-7 107))
+                      nil))))))
+
 ;;(add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 

@@ -108,6 +108,8 @@
             (color-theme-buffer-local 'color-theme-cyberpunk (current-buffer))))
 (add-hook 'scheme-mode-hook
           (lambda nil
+            ;; pretty lambdas
+            (pretty-lambdas)
             ;; scheme-complete and eldoc integration
             (make-local-variable 'eldoc-documentation-function)
             (setq eldoc-documentation-function 'scheme-get-current-symbol-info)
