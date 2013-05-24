@@ -22,6 +22,12 @@
 ;; make sure whitespace-cleanup not being used
 (remove-hook 'before-save-hook 'whitespace-cleanup)
 
+;; Unix utf8 please
+(set-default buffer-file-coding-system 'utf-8-unix)
+(set-default-coding-systems 'utf-8-unix)
+(prefer-coding-system 'utf-8-unix)
+(set-default default-buffer-file-coding-system 'utf-8-unix)
+
 ;; set colours for whitespace-mode
 (setq whitespace-style (quote (spaces tabs newline space-mark tab-mark newline-mark)))
 
