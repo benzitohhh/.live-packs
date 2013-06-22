@@ -6,6 +6,13 @@
 ;; Emacs shell reads ~/.bashrc by default, so on OSX do:
 ;;    ln -s .bash_profile .bashrc
 
+;; add Marmalade package archive
+(require 'package)
+(add-to-list 'package-archives
+    '("marmalade" .
+      "http://marmalade-repo.org/packages/"))
+(package-initialize)
+
 ;; full-ack
 (live-add-pack-lib "full-ack")
 (autoload 'ack-same "full-ack" nil t)
