@@ -178,19 +178,25 @@
   (let (parens-require-spaces)
     (insert-pair)))
 
+;; python code completion (jedi)
+(autoload 'jedi:setup "jedi" nil t)
+(setq jedi:setup-keys t)
+(setq jedi:complete-on-dot t)
+
 (add-hook 'python-mode-hook
-     (lambda ()
-       (idle-highlight-mode t)
-       (key-chord-define python-mode-map ";l" "\C-e\C-j")
-       (key-chord-define python-mode-map ";'" "\C-e:\C-j")
-       (define-key python-mode-map "\"" 'electric-pair)
-       (define-key python-mode-map "\'" 'electric-pair)
-       (define-key python-mode-map "(" 'electric-pair)
-       (define-key python-mode-map "[" 'electric-pair)
-       (define-key python-mode-map "{" 'electric-pair)
-       (define-key python-mode-map (kbd "C-c C-t") 'python-add-breakpoint)
-       (setq outline-regexp " *\\(def \\|clas\\|#hea\\)")
-       (annotate-pdb)))
+          (lambda ()
+            (jedi:setup)
+            (idle-highlight-mode t)
+            (key-chord-define python-mode-map ";l" "\C-e\C-j")
+            (key-chord-define python-mode-map ";'" "\C-e:\C-j")
+            (define-key python-mode-map "\"" 'electric-pair)
+            (define-key python-mode-map "\'" 'electric-pair)
+            (define-key python-mode-map "(" 'electric-pair)
+            (define-key python-mode-map "[" 'electric-pair)
+            (define-key python-mode-map "{" 'electric-pair)
+            (define-key python-mode-map (kbd "C-c C-t") 'python-add-breakpoint)
+            (setq outline-regexp " *\\(def \\|clas\\|#hea\\)")
+            (annotate-pdb)))
 
 ;; css-mode
 (add-hook 'css-mode-hook
