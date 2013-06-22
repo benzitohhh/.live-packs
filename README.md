@@ -34,6 +34,16 @@ Oh and you also may want to modify ~/.emacs.d/init.el to remove the the *scratch
 Plus there are a bunch of default bindings that can be disabled in
 `~/.emacs.d/packs/live/bindings-pack/config/default-bindings.el`, for example ace-jump.
 
+# python code-completion
+
+For python code-completion, [jedi](https://github.com/tkf/emacs-jedi) is used.
+This needs to be installed as follows:
+
+1. Make sure pip and virtualenv are installed
+2. install jedi.el via marmalade (M-x package-list-packages)
+3. Switch to jedi dir (i.e. ~/.emacs.d/elpa/jedi-0.1.2/ ) and run `make requirements`
+Note this uses virtualenv to install the python dependencies.
+
 # build-ctags-git
 
 For better ctags support for OO javascript, add this to your `~/.ctags`
