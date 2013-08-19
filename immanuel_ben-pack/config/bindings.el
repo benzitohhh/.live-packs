@@ -139,6 +139,14 @@
             (key-chord-define js2-mode-map "kl" "\C-e\C-j")
             (electric-pair-mode)))
 
+;; octave-mode
+(add-to-list 'auto-mode-alist '("\\.m$" . octave-mode))
+(add-hook 'octave-mode-hook
+          (lambda ()
+            (auto-complete-mode)
+            (define-key octave-mode-map (kbd "C-x C-e") 'octave-send-line)
+            (define-key octave-mode-map (kbd "C-M-x") 'octave-send-block)))
+
 ;;; php-mode
 (add-hook 'php-mode-hook
           (lambda ()
