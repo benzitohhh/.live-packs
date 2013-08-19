@@ -144,6 +144,7 @@
 (add-hook 'octave-mode-hook
           (lambda ()
             (auto-complete-mode)
+            (idle-highlight-mode t)
             (define-key octave-mode-map (kbd "C-x C-e") 'octave-send-line)
             (define-key octave-mode-map (kbd "C-M-x") 'octave-send-block)))
 
