@@ -145,6 +145,7 @@
           (lambda ()
             (auto-complete-mode)
             (idle-highlight-mode t)
+            (setq octave-block-offset 4)
             (define-key octave-mode-map (kbd "C-x C-e") 'octave-send-line)
             (define-key octave-mode-map (kbd "C-M-x") 'octave-send-block)))
 
