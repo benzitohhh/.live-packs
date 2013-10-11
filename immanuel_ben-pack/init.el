@@ -28,6 +28,7 @@
 
 ;; make sure whitespace-cleanup not being used
 (remove-hook 'before-save-hook 'whitespace-cleanup)
+(remove-hook 'before-save-hook 'live-cleanup-whitespace)
 
 ;; Unix utf8 please
 (set-default buffer-file-coding-system 'utf-8-unix)
