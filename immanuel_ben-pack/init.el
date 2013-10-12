@@ -25,6 +25,7 @@
 
 ;; set indent-level for js
 (setq js2-indent-level 4)
+(setq js-indent-level 4)
 
 ;; make sure whitespace-cleanup not being used
 (remove-hook 'before-save-hook 'whitespace-cleanup)
