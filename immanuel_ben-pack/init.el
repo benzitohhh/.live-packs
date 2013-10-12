@@ -101,8 +101,8 @@
                                       ,(make-char 'greek-iso8859-7 107))
                       nil))))))
 
-;;(add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
-(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.js" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.json" . js-mode))
 
 ;; php-mode
 (live-add-pack-lib "php-mode")
