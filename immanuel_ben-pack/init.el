@@ -21,7 +21,7 @@
 (autoload 'ack-find-file "full-ack" nil t)
 
 ;; set indent-level for html
-(setq sgml-basic-offset 4)
+(setq sgml-basic-offset 2)
 
 ;; set indent-level for js
 (setq js-indent-level 2)

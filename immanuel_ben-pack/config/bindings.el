@@ -55,6 +55,17 @@
 ;; cleanup
 (global-set-key (kbd "C-c n") 'cleanup-buffer)
 
+;; Revert all buffers
+(defun revert-all-buffers ()
+    "Refreshes all open buffers from their respective files."
+    (interactive)
+    (dolist (buf (buffer-list))
+      (with-current-buffer buf
+        (when (and (buffer-file-name) (file-exists-p (buffer-file-name)) (not (buffer-modified-p)))
+          (revert-buffer t t t) )))
+    (message "Refreshed open files.") )
+(global-set-key (kbd "<f19>") 'revert-all-buffers)
+
 ;; Hack for indents
 (defun shift-region (distance)
   (let ((mark (mark)))
