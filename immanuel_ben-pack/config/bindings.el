@@ -30,8 +30,14 @@
 (global-set-key (kbd "<f13>") 'ack-find-file)
 (global-set-key (kbd "<f15>") 'ack)
 
+;; speedbar
+(global-set-key (kbd "<f14>") 'speedbar)
+
 ;; git
 (global-set-key (kbd "s-r") 'magit-status)
+(global-set-key (kbd "<f16>") 'magit-status)
+(global-set-key (kbd "<f17>") 'magit-log)
+(global-set-key (kbd "<f18>") 'magit-pull)
 
 ;; Mercurial
 ;(global-set-key (kbd "<f16>") 'monky-status)
