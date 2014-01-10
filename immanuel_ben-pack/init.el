@@ -49,6 +49,9 @@
 ;; Don't break lines for me, please
 (setq-default truncate-lines t)
 
+;; Don't add new lines at end of file
+(setq next-line-add-newlines nil)
+
 ;; Set ediff to split vertically (default is horizontal)
 (setq ediff-split-window-function 'split-window-horizontally)
 
