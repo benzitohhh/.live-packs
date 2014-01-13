@@ -51,6 +51,7 @@
 
 ;; Don't add new lines at end of file
 (setq next-line-add-newlines nil)
+(setq require-final-newline nil)
 
 ;; Set ediff to split vertically (default is horizontal)
 (setq ediff-split-window-function 'split-window-horizontally)
