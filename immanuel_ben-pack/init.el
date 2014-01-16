@@ -68,6 +68,10 @@
 ;; blue colour-theme
 ;(load-theme 'deeper-blue)
 
+(defadvice magit-diff (before magit-diff-default-to-head activate)
+  "Offer HEAD as first default for magit-diff"
+  (interactive (list (magit-read-rev-range "Diff" "HEAD"))))
+
 ;; build-ctags-git
 (live-add-pack-lib "build-ctags-git")
 (require 'build-ctags-git)
