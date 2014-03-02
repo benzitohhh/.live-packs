@@ -49,6 +49,10 @@
 ;; Don't break lines for me, please
 (setq-default truncate-lines t)
 
+;; Don't add new lines at end of file
+(setq next-line-add-newlines nil)
+(setq require-final-newline nil)
+
 ;; Set ediff to split vertically (default is horizontal)
 (setq ediff-split-window-function 'split-window-horizontally)
 
@@ -63,6 +67,10 @@
 
 ;; blue colour-theme
 ;(load-theme 'deeper-blue)
+
+(defadvice magit-diff (before magit-diff-default-to-head activate)
+  "Offer HEAD as first default for magit-diff"
+  (interactive (list (magit-read-rev-range "Diff" "HEAD"))))
 
 ;; build-ctags-git
 (live-add-pack-lib "build-ctags-git")

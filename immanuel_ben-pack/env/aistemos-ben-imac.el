@@ -10,11 +10,16 @@
 ;; full-ack
 (setq ack-executable "/usr/local/bin/ack")
 
+;; set default window size
+(add-to-list 'default-frame-alist '(height . 90))
+(add-to-list 'default-frame-alist '(width . 110))
+
 ;; python executable (i.e as of March 2013, ipython emacs osx does not seem to work)
 ;;(setq python-shell-interpreter "/usr/local/bin/ipython")
 
 ;; default directory
-(setq default-directory "~/Desktop/")
+;(setq default-directory "~/Desktop/")
+(setq default-directory "~/dev/src/eqip")
 
 ;; tag tables
 ;;(setq tags-table-list
