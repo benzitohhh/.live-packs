@@ -39,12 +39,6 @@
 (global-set-key (kbd "<f17>") 'magit-log)
 (global-set-key (kbd "<f18>") 'magit-pull)
 
-;; Mercurial
-;(global-set-key (kbd "<f16>") 'monky-status)
-;(global-set-key (kbd "<f17>") 'monky-log)
-;(global-set-key (kbd "<f18>") 'monky-pull)
-;(global-set-key (kbd "<f19>") 'monky-push)
-
 ;; iy-go-to-char - like f in Vim
 (global-set-key (kbd "M-m") 'iy-go-to-char)
 (global-set-key (kbd "M-M") 'iy-go-to-char-backward)
