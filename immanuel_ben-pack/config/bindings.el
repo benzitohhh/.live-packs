@@ -108,22 +108,19 @@
           (lambda nil
             (idle-highlight-mode t)
             ;; ";l" (hit simultaneously) puts a RET at the end of the line
-            (key-chord-define emacs-lisp-mode-map ";l" "\C-e\C-j")
-            (color-theme-buffer-local 'color-theme-cyberpunk (current-buffer))))
+            (key-chord-define emacs-lisp-mode-map ";l" "\C-e\C-j")))
 (add-hook 'clojure-mode-hook
           (lambda nil
             (idle-highlight-mode t)
             ;; ";l" (hit simultaneously) puts a RET at the end of the line
-            (key-chord-define clojure-mode-map ";l" "\C-e\C-j")
-            (color-theme-buffer-local 'color-theme-cyberpunk (current-buffer))))
+            (key-chord-define clojure-mode-map ";l" "\C-e\C-j")))
 (add-hook 'scheme-mode-hook
           (lambda nil
             ;; pretty lambdas
             (pretty-lambdas)
             (idle-highlight-mode t)
             ;; ";l" (hit simultaneously) puts a RET at the end of the line
-            (key-chord-define scheme-mode-map ";l" "\C-e\C-j")
-            (color-theme-buffer-local 'color-theme-cyberpunk (current-buffer))))
+            (key-chord-define scheme-mode-map ";l" "\C-e\C-j")))
 
 ;;; js-mode
 (add-hook 'js-mode-hook

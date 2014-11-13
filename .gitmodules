@@ -1,9 +1,6 @@
 [submodule "immanuel_ben-pack/lib/php-mode"]
 	path = immanuel_ben-pack/lib/php-mode
 	url = https://github.com/ejmr/php-mode.git
-[submodule "immanuel_ben-pack/lib/color-theme-buffer-local"]
-	path = immanuel_ben-pack/lib/color-theme-buffer-local
-	url = https://github.com/vic/color-theme-buffer-local
 [submodule "immanuel_ben-pack/lib/idle-highlight-mode"]
 	path = immanuel_ben-pack/lib/idle-highlight-mode
 	url = https://github.com/nonsequitur/idle-highlight-mode.git
