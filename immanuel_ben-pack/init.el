@@ -58,6 +58,7 @@ re-downloaded in order to locate PACKAGE."
      etags-select
      full-ack
      idle-highlight-mode
+     php-mode
      )))
 (condition-case nil
     (init--install-packages)
@@ -141,8 +142,6 @@ re-downloaded in order to locate PACKAGE."
 (add-to-list 'auto-mode-alist '("\\.json" . js-mode))
 
 ;; php-mode
-(live-add-pack-lib "php-mode")
-(require 'php-mode)
 (add-to-list 'auto-mode-alist '("\\.php" . php-mode))
 (add-to-list 'auto-mode-alist '("\\.module" . php-mode))
 
