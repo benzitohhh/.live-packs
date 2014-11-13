@@ -123,6 +123,10 @@
 (live-add-pack-lib "less-css-mode")
 (require 'less-css-mode)
 
+;; gradle files
+(require 'groovy-mode)
+(add-to-list 'auto-mode-alist '("\\.gradle" . groovy-mode))
+
 ;; extra snippets for yas
 (setq custom-yasnippet-dir (concat (file-name-directory load-file-name) "etc/snippets"))
 (setq yas/snippet-dirs (cons custom-yasnippet-dir yas/snippet-dirs))
