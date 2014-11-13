@@ -55,6 +55,7 @@ re-downloaded in order to locate PACKAGE."
      jedi
      popup
      scala-mode
+     etags-select
      )))
 (condition-case nil
     (init--install-packages)
@@ -115,10 +116,6 @@ re-downloaded in order to locate PACKAGE."
 (defadvice magit-diff (before magit-diff-default-to-head activate)
   "Offer HEAD as first default for magit-diff"
   (interactive (list (magit-read-rev-range "Diff" "HEAD"))))
-
-;; etags-select
-(live-add-pack-lib "etags-select")
-(require 'etags-select)
 
 ;; shell-command
 (live-add-pack-lib "shell-command")
