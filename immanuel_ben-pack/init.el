@@ -57,6 +57,7 @@ re-downloaded in order to locate PACKAGE."
      scala-mode
      etags-select
      full-ack
+     idle-highlight-mode
      )))
 (condition-case nil
     (init--install-packages)
@@ -127,10 +128,6 @@ re-downloaded in order to locate PACKAGE."
 ;; misc
 (live-add-pack-lib "misc")
 (require 'misc)
-
-;; idle-highlight-mode
-(live-add-pack-lib "idle-highlight-mode")
-(require 'idle-highlight-mode)
 
 (defun pretty-lambdas ()
     (font-lock-add-keywords
