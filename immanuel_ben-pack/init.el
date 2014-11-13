@@ -107,10 +107,6 @@
 (add-to-list 'auto-mode-alist '("\\.php" . php-mode))
 (add-to-list 'auto-mode-alist '("\\.module" . php-mode))
 
-;; less-css-mode
-(live-add-pack-lib "less-css-mode")
-(require 'less-css-mode)
-
 ;; gradle files
 (require 'groovy-mode)
 (add-to-list 'auto-mode-alist '("\\.gradle" . groovy-mode))
