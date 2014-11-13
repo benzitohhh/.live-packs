@@ -72,10 +72,6 @@
   "Offer HEAD as first default for magit-diff"
   (interactive (list (magit-read-rev-range "Diff" "HEAD"))))
 
-;; build-ctags-git
-(live-add-pack-lib "build-ctags-git")
-(require 'build-ctags-git)
-
 ;; etags-select
 (live-add-pack-lib "etags-select")
 (require 'etags-select)
