@@ -56,6 +56,7 @@ re-downloaded in order to locate PACKAGE."
      popup
      scala-mode
      etags-select
+     full-ack
      )))
 (condition-case nil
     (init--install-packages)
@@ -64,7 +65,7 @@ re-downloaded in order to locate PACKAGE."
    (init--install-packages)))
 
 ;; full-ack
-(live-add-pack-lib "full-ack")
+;; (live-add-pack-lib "full-ack")
 (autoload 'ack-same "full-ack" nil t)
 (autoload 'ack "full-ack" nil t)
 (autoload 'ack-find-same-file "full-ack" nil t)
