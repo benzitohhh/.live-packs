@@ -90,10 +90,6 @@
 (live-add-pack-lib "idle-highlight-mode")
 (require 'idle-highlight-mode)
 
-;; zencoding
-(live-add-pack-lib "zencoding")
-(require 'zencoding-mode)
-
 (defun pretty-lambdas ()
     (font-lock-add-keywords
      nil `(("(\\(lambda\\>\\)"

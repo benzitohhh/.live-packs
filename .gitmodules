@@ -1,6 +1,3 @@
-[submodule "immanuel_ben-pack/lib/zencoding"]
-	path = immanuel_ben-pack/lib/zencoding
-	url = https://github.com/rooney/zencoding.git
 [submodule "immanuel_ben-pack/lib/php-mode"]
 	path = immanuel_ben-pack/lib/php-mode
 	url = https://github.com/ejmr/php-mode.git

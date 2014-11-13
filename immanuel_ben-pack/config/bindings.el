@@ -232,17 +232,4 @@
             (key-chord-define sgml-mode-map ";l" "\C-e\C-j")
             (key-chord-define sgml-mode-map "kl" "\C-e\C-j")
             (define-key sgml-mode-map (kbd "C-c C-r") 'rename-sgml-tag)
-            (zencoding-mode)
             (electric-pair-mode)))
-(eval-after-load 'zencoding-mode
-  '(progn
-     (define-key zencoding-mode-keymap (kbd "C-j") nil)
-     (define-key zencoding-mode-keymap (kbd "<C-return>") nil)
-     (define-key zencoding-mode-keymap (kbd "C-c C-j") 'zencoding-expand-line)
-
-     (defun zencoding-indent (text)
-       "Indent the text"
-       (if text
-           (replace-regexp-in-string "\n" "\n  " (concat "\n" text))
-         nil))
-     ))
