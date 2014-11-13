@@ -14,20 +14,24 @@ Create an environment file (i.e. `~/.live-packs/immanuel_ben-pack/env/not-so-shi
 setting variables appropriately.
 
 Then modify your `~/.emacs-live.el`, so that it loads environment, and the pack itself:
+```
+;; load environment
+(load "~/.live-packs/immanuel_ben-pack/env/aistemos-ben-imac.el" )
 
-    ;; load environment
-    (load "~/.live-packs/immanuel_ben-pack/env/not-so-shiny-now.el" )
-    
-    ;; load packs
-    (live-add-packs '(~/.live-packs/immanuel_ben-pack))
+;; Specify default packs to use
+(live-use-packs '(stable/foundation-pack
+                  ;;stable/colour-pack
+                  stable/lang-pack
+                  stable/power-pack
+                  stable/git-pack
+                  ;;stable/org-pack
+                  stable/clojure-pack
+                  stable/bindings-pack
+                  ))
 
-And finally, disable the live colour scheme
-by modifying `~/.emacs.d/packs/live/colour-pack/init.el`, commenting out
-
-    ;(color-theme-cyberpunk)
-    ;(set-cursor-color "yellow")
-
-Don't worry, these will get loaded for lisp and clojure modes, just not for the other modes.
+;; load packs
+(live-add-packs '(~/.live-packs/immanuel_ben-pack))
+```
 
 Oh and you also may want to modify ~/.emacs.d/init.el to remove the the *scratch* loading message.
 
