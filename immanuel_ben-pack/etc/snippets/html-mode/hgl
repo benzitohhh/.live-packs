@@ -1,9 +1,0 @@
-# -*- coding: utf-8 -*-
-# name: hgl
-# --
-<section>
-    <hgroup class="module-title">
-        <h5>${1:Explore}</h5>
-	<h2>${2:The collection}</h2>
-    </hgroup>
-</section>$0
