@@ -120,10 +120,6 @@
           (lambda nil
             ;; pretty lambdas
             (pretty-lambdas)
-            ;; scheme-complete and eldoc integration
-            (make-local-variable 'eldoc-documentation-function)
-            (setq eldoc-documentation-function 'scheme-get-current-symbol-info)
-            (turn-on-eldoc-mode)
             (idle-highlight-mode t)
             ;; ";l" (hit simultaneously) puts a RET at the end of the line
             (key-chord-define scheme-mode-map ";l" "\C-e\C-j")

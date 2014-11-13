@@ -94,10 +94,6 @@
 (live-add-pack-lib "zencoding")
 (require 'zencoding-mode)
 
-;; scheme-complete
-(live-add-pack-lib "scheme-complete")
-(require 'scheme-complete)
-
 (defun pretty-lambdas ()
     (font-lock-add-keywords
      nil `(("(\\(lambda\\>\\)"
