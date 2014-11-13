@@ -90,10 +90,6 @@
 (live-add-pack-lib "idle-highlight-mode")
 (require 'idle-highlight-mode)
 
-;; mark-multiple
-(live-add-pack-lib "mark-multiple")
-(require 'mark-multiple)
-
 ;; zencoding
 (live-add-pack-lib "zencoding")
 (require 'zencoding-mode)

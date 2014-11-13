@@ -1,6 +1,3 @@
-[submodule "immanuel_ben-pack/lib/mark-multiple"]
-	path = immanuel_ben-pack/lib/mark-multiple
-	url = https://github.com/magnars/mark-multiple.el.git
 [submodule "immanuel_ben-pack/lib/zencoding"]
 	path = immanuel_ben-pack/lib/zencoding
 	url = https://github.com/rooney/zencoding.git
