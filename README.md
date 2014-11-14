@@ -1,37 +1,41 @@
 # instalation
 
-1) install Emacs (at least version 24).
+1) Install Emacs (at least version 24). See http://emacsformacosx.com/
 
-Next, install emacs live.
+2) Remove your existing `~/.emacs.d`
 
-2) Switch into your user directory ( `cd ~/` ).
+3) Install emacs live
+```
+cd ~/
+git clone https://github.com/overtone/emacs-live.git
+```
 
-3) Remove your existing `~/.emacs.d`
-
-4) git clone https://github.com/overtone/emacs-live.git
-
-5) Make sure all modules are loaded
+4) Make sure all modules are loaded
 ```
     cd emacs-live
     git submodule init
     git submodule update
     cd ..
 ```
-6) Rename `emacs-live` to `.emacs.d`
 
-7) install .live packs repo:
+5) Rename `emacs-live` to `.emacs.d`
+```
+mv emacs-live .emacs.d
+```
+
+6) install .live packs repo:
 ```
     cd ~/
     git clone git@github.com:benzitohhh/.live-packs.git
 ```
 
-8) Create an environment file (i.e. `~/.live-packs/immanuel_ben-pack/env/not-so-shiny-now.el` ),
+7) Create an environment file (i.e. `~/.live-packs/immanuel_ben-pack/env/not-so-shiny-now.el` ),
 setting variables appropriately.
 
-9) modify your `~/.emacs-live.el`, so that it loads environment, and the pack itself:
+8) Create an `~/.emacs-live.el`, so that it loads environment, and the pack itself:
 ```
 ;; load environment
-(load "~/.live-packs/immanuel_ben-pack/env/aistemos-ben-imac.el" )
+(load "~/.live-packs/immanuel_ben-pack/env/not-so-shiny-now.el" )
 
 ;; Specify default packs to use
 (live-use-packs '(stable/foundation-pack
@@ -48,7 +52,7 @@ setting variables appropriately.
 (live-add-packs '(~/.live-packs/immanuel_ben-pack))
 ```
 
-10) You also may want to modify ~/.emacs.d/init.el to remove the the *scratch* loading message.
+9) You also may want to modify ~/.emacs.d/init.el to remove the the *scratch* loading message.
 
 Plus there are a bunch of default bindings that can be disabled in
 `~/.emacs.d/packs/live/bindings-pack/config/default-bindings.el`, for example ace-jump.
