@@ -1,35 +1,34 @@
 # instalation
 
-First, install Emacs (at least version 24).
+1) install Emacs (at least version 24).
 
 Next, install emacs live.
 
-1) Switch into your user directory ( `cd ~/` ).
+2) Switch into your user directory ( `cd ~/` ).
 
-2) Remove your existing `~/.emacs.d`
+3) Remove your existing `~/.emacs.d`
 
-3) git clone https://github.com/overtone/emacs-live.git
+4) git clone https://github.com/overtone/emacs-live.git
 
-4) Make sure all modules are loaded
+5) Make sure all modules are loaded
 ```
     cd emacs-live
     git submodule init
     git submodule update
     cd ..
 ```
-5) Rename `emacs-live` to `.emacs.d`
+6) Rename `emacs-live` to `.emacs.d`
 
-Now, install this repo:
-
+7) install .live packs repo:
 ```
     cd ~/
     git clone git@github.com:benzitohhh/.live-packs.git
 ```
 
-Create an environment file (i.e. `~/.live-packs/immanuel_ben-pack/env/not-so-shiny-now.el` ),
+8) Create an environment file (i.e. `~/.live-packs/immanuel_ben-pack/env/not-so-shiny-now.el` ),
 setting variables appropriately.
 
-Then modify your `~/.emacs-live.el`, so that it loads environment, and the pack itself:
+9) modify your `~/.emacs-live.el`, so that it loads environment, and the pack itself:
 ```
 ;; load environment
 (load "~/.live-packs/immanuel_ben-pack/env/aistemos-ben-imac.el" )
@@ -49,10 +48,18 @@ Then modify your `~/.emacs-live.el`, so that it loads environment, and the pack 
 (live-add-packs '(~/.live-packs/immanuel_ben-pack))
 ```
 
-Oh and you also may want to modify ~/.emacs.d/init.el to remove the the *scratch* loading message.
+10) You also may want to modify ~/.emacs.d/init.el to remove the the *scratch* loading message.
 
 Plus there are a bunch of default bindings that can be disabled in
 `~/.emacs.d/packs/live/bindings-pack/config/default-bindings.el`, for example ace-jump.
+
+# Cider (clojure stuff)
+
+You'll need to install lein. Then add a `~/.lein/profiles.clj` containing:
+```
+{:user {:plugins [[cider/cider-nrepl "0.7.0"]]}}
+```
+
 
 # python code-completion
 
