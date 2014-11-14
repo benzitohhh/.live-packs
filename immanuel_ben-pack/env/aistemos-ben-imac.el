@@ -14,8 +14,8 @@
 (add-to-list 'default-frame-alist '(height . 90))
 (add-to-list 'default-frame-alist '(width . 110))
 
-;; python executable (i.e as of March 2013, ipython emacs osx does not seem to work)
-;;(setq python-shell-interpreter "/usr/local/bin/ipython")
+;; python executable (comment this out to use tge default)
+(setq python-shell-interpreter "/usr/local/bin/ipython")
 
 ;; default directory
 ;(setq default-directory "~/Desktop/")
