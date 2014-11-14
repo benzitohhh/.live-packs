@@ -60,7 +60,7 @@ re-downloaded in order to locate PACKAGE."
      idle-highlight
      php-mode
      zenburn-theme
-     flycheck-mode
+     flycheck
      )))
 (condition-case nil
     (init--install-packages)
