@@ -68,6 +68,12 @@ re-downloaded in order to locate PACKAGE."
    (package-refresh-contents)
    (init--install-packages)))
 
+;; zenburn-theme
+(require 'zenburn-theme)
+
+;; blue colour-theme
+;(load-theme 'deeper-blue)
+
 ;; full-ack
 ;; (live-add-pack-lib "full-ack")
 (autoload 'ack-same "full-ack" nil t)
@@ -110,12 +116,6 @@ re-downloaded in order to locate PACKAGE."
 
 ;; Set ediff to split vertically (default is horizontal)
 (setq ediff-split-window-function 'split-window-horizontally)
-
-;; zenburn-theme
-(require 'zenburn-theme)
-
-;; blue colour-theme
-;(load-theme 'deeper-blue)
 
 (defadvice magit-diff (before magit-diff-default-to-head activate)
   "Offer HEAD as first default for magit-diff"
