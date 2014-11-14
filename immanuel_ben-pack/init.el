@@ -59,6 +59,7 @@ re-downloaded in order to locate PACKAGE."
      full-ack
      idle-highlight-mode
      php-mode
+     zenburn-theme
      )))
 (condition-case nil
     (init--install-packages)
@@ -110,7 +111,6 @@ re-downloaded in order to locate PACKAGE."
 (setq ediff-split-window-function 'split-window-horizontally)
 
 ;; zenburn-theme
-(live-add-pack-lib "zenburn-theme")
 (require 'zenburn-theme)
 
 ;; blue colour-theme
