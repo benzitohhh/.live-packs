@@ -10,8 +10,8 @@
 ;; Racket (scheme)
 (setq scheme-program-name "/Applications/Racketv5.3.3/bin/mzscheme")
 
-;; python executable (i.e as of March 2013, ipython emacs osx does not seem to work)
-;;(setq python-shell-interpreter "/usr/local/bin/ipython")
+;; python executable (comment this out to use the default)
+(setq python-shell-interpreter "/usr/local/bin/ipython")
 
 ;; default directory
 (setq default-directory "~/Desktop/")
