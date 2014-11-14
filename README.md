@@ -1,14 +1,30 @@
 # instalation
 
-If git is 1.65 or greater do
+First, install Emacs (at least version 24).
 
-    git clone --recursive git@github.com:benzitohhh/.live-packs.git 
+Next, install emacs live.
 
-Otherwise
+1) Switch into your user directory ( `cd ~/` ).
 
-    git clone git@github.com:benzitohhh/.live-packs.git
+2) Remove your existing `~/.emacs.d`
+
+3) git clone https://github.com/overtone/emacs-live.git
+
+4) Make sure all modules are loaded
+```
+    cd emacs-live
     git submodule init
     git submodule update
+    cd ..
+```
+5) Rename `emacs-live` to `.emacs.d`
+
+Now, install this repo:
+
+```
+    cd ~/
+    git clone git@github.com:benzitohhh/.live-packs.git
+```
 
 Create an environment file (i.e. `~/.live-packs/immanuel_ben-pack/env/not-so-shiny-now.el` ),
 setting variables appropriately.
