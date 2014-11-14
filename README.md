@@ -1,22 +1,41 @@
 # instalation
 
-If git is 1.65 or greater do
+1) Install Emacs (at least version 24). See http://emacsformacosx.com/
 
-    git clone --recursive git@github.com:benzitohhh/.live-packs.git 
+2) Remove your existing `~/.emacs.d`
 
-Otherwise
+3) Install emacs live
+```
+cd ~/
+git clone https://github.com/overtone/emacs-live.git
+```
 
-    git clone git@github.com:benzitohhh/.live-packs.git
+4) Make sure all modules are loaded
+```
+    cd emacs-live
     git submodule init
     git submodule update
+    cd ..
+```
 
-Create an environment file (i.e. `~/.live-packs/immanuel_ben-pack/env/not-so-shiny-now.el` ),
+5) Rename `emacs-live` to `.emacs.d`
+```
+mv emacs-live .emacs.d
+```
+
+6) install .live packs repo:
+```
+    cd ~/
+    git clone git@github.com:benzitohhh/.live-packs.git
+```
+
+7) Create an environment file (i.e. `~/.live-packs/immanuel_ben-pack/env/not-so-shiny-now.el` ),
 setting variables appropriately.
 
-Then modify your `~/.emacs-live.el`, so that it loads environment, and the pack itself:
+8) Create an `~/.emacs-live.el`, so that it loads environment, and the pack itself:
 ```
 ;; load environment
-(load "~/.live-packs/immanuel_ben-pack/env/aistemos-ben-imac.el" )
+(load "~/.live-packs/immanuel_ben-pack/env/not-so-shiny-now.el" )
 
 ;; Specify default packs to use
 (live-use-packs '(stable/foundation-pack
@@ -33,10 +52,20 @@ Then modify your `~/.emacs-live.el`, so that it loads environment, and the pack 
 (live-add-packs '(~/.live-packs/immanuel_ben-pack))
 ```
 
-Oh and you also may want to modify ~/.emacs.d/init.el to remove the the *scratch* loading message.
+9) You also may want to modify ~/.emacs.d/init.el to remove the the *scratch* loading message.
 
 Plus there are a bunch of default bindings that can be disabled in
 `~/.emacs.d/packs/live/bindings-pack/config/default-bindings.el`, for example ace-jump.
+
+# Cider (clojure stuff)
+
+You'll need to install lein. Then add a `~/.lein/profiles.clj` containing:
+```
+{:user {:plugins [[cider/cider-nrepl "0.7.0"]]}}
+```
+
+You will probably also want to disable `clojure-test-conf.el` in `~/.emacs.d/packs/stable/clojure-pack/init.el`
+
 
 # python code-completion
 
