@@ -106,26 +106,26 @@
 ;; lispy modes
 (add-hook 'emacs-lisp-mode-hook
           (lambda nil
-            (idle-highlight-mode t)
+            (idle-highlight t)
             ;; ";l" (hit simultaneously) puts a RET at the end of the line
             (key-chord-define emacs-lisp-mode-map ";l" "\C-e\C-j")))
 (add-hook 'clojure-mode-hook
           (lambda nil
-            (idle-highlight-mode t)
+            (idle-highlight t)
             ;; ";l" (hit simultaneously) puts a RET at the end of the line
             (key-chord-define clojure-mode-map ";l" "\C-e\C-j")))
 (add-hook 'scheme-mode-hook
           (lambda nil
             ;; pretty lambdas
             (pretty-lambdas)
-            (idle-highlight-mode t)
+            (idle-highlight t)
             ;; ";l" (hit simultaneously) puts a RET at the end of the line
             (key-chord-define scheme-mode-map ";l" "\C-e\C-j")))
 
 ;;; js-mode
 (add-hook 'js-mode-hook
           (lambda ()
-            (idle-highlight-mode t)
+            (idle-highlight t)
             ;; ";;" (double tap) puts a ; at the end of the line
             (key-chord-define js-mode-map ";;" "\C-e;")
             ;; ";l" (hit simultaneously) puts a ;RET at the end of the line
@@ -136,7 +136,7 @@
 ;;; js2-mode
 (add-hook 'js2-mode-hook
           (lambda ()
-            (idle-highlight-mode t)
+            (idle-highlight t)
             (key-chord-define js2-mode-map ";;" "\C-e;")
             (key-chord-define js2-mode-map ";l" "\C-e;\C-j")
             (key-chord-define js2-mode-map "kl" "\C-e\C-j")
@@ -147,7 +147,7 @@
 (add-hook 'octave-mode-hook
           (lambda ()
             (auto-complete-mode)
-            (idle-highlight-mode t)
+            (idle-highlight t)
             (setq octave-block-offset 4)
             (electric-pair-mode)
             (define-key octave-mode-map (kbd "C-x C-e") 'octave-send-line)
@@ -156,7 +156,7 @@
 ;;; php-mode
 (add-hook 'php-mode-hook
           (lambda ()
-            (idle-highlight-mode t)
+            (idle-highlight t)
             (setq indent-tabs-mode nil
                   tab-width 4
                   c-basic-offset 4)
@@ -200,7 +200,7 @@
 (add-hook 'python-mode-hook
           (lambda ()
             (jedi:setup)
-            (idle-highlight-mode t)
+            (idle-highlight t)
             (key-chord-define python-mode-map ";l" "\C-e\C-j")
             (key-chord-define python-mode-map ";'" "\C-e:\C-j")
             (define-key python-mode-map "\"" 'electric-pair)
@@ -215,7 +215,7 @@
 ;; css-mode
 (add-hook 'css-mode-hook
           (lambda ()
-            (idle-highlight-mode t)
+            (idle-highlight t)
             (key-chord-define css-mode-map ";;" "\C-e;")
             (key-chord-define css-mode-map ";l" "\C-e;\C-j")
             (key-chord-define js2-mode-map "kl" "\C-e\C-j")
@@ -225,7 +225,7 @@
 (add-hook 'sgml-mode-hook
           (lambda ()
             (require 'rename-sgml-tag)
-            (idle-highlight-mode t)
+            (idle-highlight t)
             (key-chord-define sgml-mode-map ";l" "\C-e\C-j")
             (key-chord-define sgml-mode-map "kl" "\C-e\C-j")
             (define-key sgml-mode-map (kbd "C-c C-r") 'rename-sgml-tag)

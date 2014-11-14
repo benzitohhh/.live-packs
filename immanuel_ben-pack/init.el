@@ -57,7 +57,7 @@ re-downloaded in order to locate PACKAGE."
      scala-mode
      etags-select
      full-ack
-     idle-highlight-mode
+     idle-highlight
      php-mode
      zenburn-theme
      )))
