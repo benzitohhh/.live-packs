@@ -64,6 +64,8 @@ You'll need to install lein. Then add a `~/.lein/profiles.clj` containing:
 {:user {:plugins [[cider/cider-nrepl "0.7.0"]]}}
 ```
 
+You will probably also want to disable `clojure-test-conf.el` in `~/.emacs.d/packs/stable/clojure-pack/init.el`
+
 
 # python code-completion
 
