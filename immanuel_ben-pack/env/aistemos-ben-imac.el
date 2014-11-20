@@ -21,6 +21,9 @@
 ;(setq default-directory "~/Desktop/")
 (setq default-directory "~/dev/src/eqip")
 
+;; Things to know doc
+(setq things-to-know-file "~/Documents/thingsToKnow/thingsToKnowOhOh.txt")
+
 ;; tag tables
 ;;(setq tags-table-list
 ;;           '("/opt/local/Library/Frameworks/Python.framework/Versions/2.6/lib/python2.6/site-packages/django/TAGS"))

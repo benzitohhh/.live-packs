@@ -39,6 +39,14 @@
 (global-set-key (kbd "<f17>") 'magit-log)
 (global-set-key (kbd "<f18>") 'magit-pull)
 
+;; things to know
+(global-set-key (kbd "<f19>") 'open-things-to-know)
+(global-unset-key (kbd "<f19>"))
+(defun open-things-to-know ()
+  "Open thingsToKnow.txt"
+  (interactive)
+  (find-file things-to-know-file))
+
 ;; iy-go-to-char - like f in Vim
 (global-set-key (kbd "M-m") 'iy-go-to-char)
 (global-set-key (kbd "M-M") 'iy-go-to-char-backward)
