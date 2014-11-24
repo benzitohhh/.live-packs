@@ -41,7 +41,6 @@
 
 ;; things to know
 (global-set-key (kbd "<f19>") 'open-things-to-know)
-(global-unset-key (kbd "<f19>"))
 (defun open-things-to-know ()
   "Open thingsToKnow.txt"
   (interactive)
