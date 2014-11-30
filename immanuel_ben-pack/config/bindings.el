@@ -119,6 +119,7 @@
 (add-hook 'clojure-mode-hook
           (lambda nil
             (idle-highlight t)
+            (local-set-key (kbd "s-k") 'cider-find-and-clear-repl-buffer)
             ;; ";l" (hit simultaneously) puts a RET at the end of the line
             (key-chord-define clojure-mode-map ";l" "\C-e\C-j")))
 (add-hook 'scheme-mode-hook
@@ -170,7 +171,7 @@
             ;; (c-set-offset 'topmost-intro 4)
             ;; (c-set-offset 'cpp-macro -4)
             (electric-pair-mode)
-            (local-set-key (kbd "M-r") 'break-php-undo-refresh)
+            
             ;; ";;" (double tap) puts a ; at the end of the line
             (key-chord-define php-mode-map ";;" "\C-e;")
             ;; ";RET" (hit simultaneously) puts a ;RET at the end of the line
