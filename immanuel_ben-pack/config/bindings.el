@@ -236,5 +236,4 @@
             (idle-highlight t)
             (key-chord-define sgml-mode-map ";l" "\C-e\C-j")
             (key-chord-define sgml-mode-map "kl" "\C-e\C-j")
-            (define-key sgml-mode-map (kbd "C-c C-r") 'rename-sgml-tag)
             (electric-pair-mode)))

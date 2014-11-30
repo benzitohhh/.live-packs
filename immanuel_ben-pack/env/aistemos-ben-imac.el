@@ -11,8 +11,10 @@
 (setq ack-executable "/usr/local/bin/ack")
 
 ;; set default window size
-(add-to-list 'default-frame-alist '(height . 90))
-(add-to-list 'default-frame-alist '(width . 110))
+(add-to-list 'default-frame-alist '(width . 104))
+(add-to-list 'default-frame-alist '(height . 82))
+(add-to-list 'default-frame-alist '(left . 770))
+(add-to-list 'default-frame-alist '(top . 255))
 
 ;; python executable (comment this out to use tge default)
 (setq python-shell-interpreter "/usr/local/bin/ipython")
