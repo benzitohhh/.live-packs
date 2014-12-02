@@ -116,12 +116,6 @@
             (idle-highlight t)
             ;; ";l" (hit simultaneously) puts a RET at the end of the line
             (key-chord-define emacs-lisp-mode-map ";l" "\C-e\C-j")))
-(add-hook 'clojure-mode-hook
-          (lambda nil
-            (idle-highlight t)
-            (local-set-key (kbd "s-k") 'cider-find-and-clear-repl-buffer)
-            ;; ";l" (hit simultaneously) puts a RET at the end of the line
-            (key-chord-define clojure-mode-map ";l" "\C-e\C-j")))
 (add-hook 'scheme-mode-hook
           (lambda nil
             ;; pretty lambdas
@@ -129,6 +123,17 @@
             (idle-highlight t)
             ;; ";l" (hit simultaneously) puts a RET at the end of the line
             (key-chord-define scheme-mode-map ";l" "\C-e\C-j")))
+(add-hook 'clojure-mode-hook
+          (lambda nil
+            (idle-highlight t)
+            (local-set-key (kbd "s-k") 'cider-find-and-clear-repl-buffer)
+            ;; ";l" (hit simultaneously) puts a RET at the end of the line
+            (key-chord-define clojure-mode-map ";l" "\C-e\C-j")))
+(require 'ac-cider-compliment)
+(add-hook 'cider-mode-hook 'ac-flyspell-workaround)
+(add-hook 'cider-mode-hook 'ac-cider-compliment-setup)
+(eval-after-load "auto-complete"
+  '(add-to-list 'ac-modes cider-mode))
 
 ;;; js-mode
 (add-hook 'js-mode-hook
