@@ -129,6 +129,7 @@
             (local-set-key (kbd "s-k") 'cider-find-and-clear-repl-buffer)
             ;; ";l" (hit simultaneously) puts a RET at the end of the line
             (key-chord-define clojure-mode-map ";l" "\C-e\C-j")))
+(remove-hook 'nrepl-connected-hook 'cider-display-connected-message) ;; remove annoying startup message
 (require 'ac-cider-compliment)
 (add-hook 'cider-mode-hook 'ac-flyspell-workaround)
 (add-hook 'cider-mode-hook 'ac-cider-compliment-setup)
