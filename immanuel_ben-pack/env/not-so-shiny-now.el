@@ -5,7 +5,7 @@
 (add-to-list 'load-path "/usr/local/git/contrib/emacs")
 
 ;; full-ack
-(setq ack-executable "/usr/local/bin/ack")
+(setq ack-executable "/Users/immanuel_ben/bin/ack")
 
 ;; Racket (scheme)
 (setq scheme-program-name "/Applications/Racketv5.3.3/bin/mzscheme")
