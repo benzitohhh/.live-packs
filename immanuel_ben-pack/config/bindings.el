@@ -39,6 +39,13 @@
 (global-set-key (kbd "<f17>") 'magit-log)
 (global-set-key (kbd "<f18>") 'magit-pull)
 
+;; open init file
+(global-set-key (kbd "<f18>") 'open-init)
+(defun open-init ()
+  "Open bindings.el"
+  (interactive)
+  (find-file init-file))
+
 ;; things to know
 (global-set-key (kbd "<f19>") 'open-things-to-know)
 (defun open-things-to-know ()
