@@ -231,6 +231,8 @@
             (define-key python-mode-map "{" 'electric-pair)
             (define-key python-mode-map (kbd "C-c C-t") 'python-add-breakpoint)
             (setq outline-regexp " *\\(def \\|clas\\|#hea\\)")
+            (define-key python-mode-map (kbd "M-.") 'jedi:goto-definition)
+            (define-key python-mode-map (kbd "M->") 'jedi:goto-definition-pop-marker)
             (annotate-pdb)))
 
 ;; css-mode
