@@ -252,3 +252,11 @@
             (key-chord-define sgml-mode-map ";l" "\C-e\C-j")
             (key-chord-define sgml-mode-map "kl" "\C-e\C-j")
             (electric-pair-mode)))
+
+;; TEMPORARY
+(global-set-key (kbd "<s-return>") 'exec-wikipedia-annotate)
+(defun exec-wikipedia-annotate ()
+  "Call wikipedia annotate script"
+  (interactive)
+  (shell-command "cd /Users/benimmanuel/Desktop/wikipedia-annotate; python annotate.py input/lipitorFams.csv -n 10 > out.html"))
+
