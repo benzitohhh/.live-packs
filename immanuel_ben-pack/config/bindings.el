@@ -253,6 +253,17 @@
             (key-chord-define sgml-mode-map "kl" "\C-e\C-j")
             (electric-pair-mode)))
 
+;; sparql mode
+(add-to-list 'auto-mode-alist '("\\.sparql$" . sparql-mode))
+(add-to-list 'auto-mode-alist '("\\.rq$" . sparql-mode))
+(add-hook 'sparql-mode-hook
+          (lambda ()
+            (idle-highlight t)
+            (auto-complete-mode)
+            (sparql-set-base-url "http://dbpedia.org/sparql?default-graph-uri=http%3A%2F%2Fdbpedia.org&format=csv&timeout=30000&debug=on")
+            (define-key sparql-mode-map (kbd "C-c C-c") 'sparql-query-region)
+            (define-key sparql-mode-map (kbd "<s-return>") 'sparql-query-region)))
+
 ;; TEMPORARY
 (global-set-key (kbd "<s-return>") 'wa-annotate)
 ;(defvar wa-input "input/lipitorFams.csv")
