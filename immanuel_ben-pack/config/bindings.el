@@ -254,9 +254,17 @@
             (electric-pair-mode)))
 
 ;; TEMPORARY
-(global-set-key (kbd "<s-return>") 'exec-wikipedia-annotate)
-(defun exec-wikipedia-annotate ()
+(global-set-key (kbd "<s-return>") 'wa-annotate)
+;(defvar wa-input "input/lipitorFams.csv")
+;(defvar wa-input "input/cholestorolFams.csv")
+(defvar wa-input "input/drugFams.csv")
+(defvar wa-n 10)
+(defvar wa-output "out.html")
+(defun wa-annotate ()
   "Call wikipedia annotate script"
   (interactive)
-  (shell-command "cd /Users/benimmanuel/Desktop/wikipedia-annotate; python annotate.py input/lipitorFams.csv -n 10 > out.html"))
+  (shell-command
+   (concat "cd /Users/benimmanuel/Desktop/wikipedia-annotate; "
+           "python annotate.py " wa-input " -n " (number-to-string wa-n)
+           " > " wa-output)))
 
