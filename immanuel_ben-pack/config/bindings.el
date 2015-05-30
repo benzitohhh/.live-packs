@@ -39,6 +39,13 @@
 (global-set-key (kbd "<f17>") 'magit-log)
 (global-set-key (kbd "<f18>") 'magit-pull)
 
+;; open init file
+(global-set-key (kbd "<f18>") 'open-init)
+(defun open-init ()
+  "Open bindings.el"
+  (interactive)
+  (find-file init-file))
+
 ;; things to know
 (global-set-key (kbd "<f19>") 'open-things-to-know)
 (defun open-things-to-know ()
@@ -224,6 +231,8 @@
             (define-key python-mode-map "{" 'electric-pair)
             (define-key python-mode-map (kbd "C-c C-t") 'python-add-breakpoint)
             (setq outline-regexp " *\\(def \\|clas\\|#hea\\)")
+            (define-key python-mode-map (kbd "M-.") 'jedi:goto-definition)
+            (define-key python-mode-map (kbd "M->") 'jedi:goto-definition-pop-marker)
             (annotate-pdb)))
 
 ;; css-mode
@@ -243,3 +252,30 @@
             (key-chord-define sgml-mode-map ";l" "\C-e\C-j")
             (key-chord-define sgml-mode-map "kl" "\C-e\C-j")
             (electric-pair-mode)))
+
+;; sparql mode
+(add-to-list 'auto-mode-alist '("\\.sparql$" . sparql-mode))
+(add-to-list 'auto-mode-alist '("\\.rq$" . sparql-mode))
+(add-hook 'sparql-mode-hook
+          (lambda ()
+            (idle-highlight t)
+            (auto-complete-mode)
+            (sparql-set-base-url "http://dbpedia.org/sparql?default-graph-uri=http%3A%2F%2Fdbpedia.org&format=csv&timeout=30000&debug=on")
+            (define-key sparql-mode-map (kbd "C-c C-c") 'sparql-query-region)
+            (define-key sparql-mode-map (kbd "<s-return>") 'sparql-query-region)))
+
+;; TEMPORARY
+(global-set-key (kbd "<s-return>") 'wa-annotate)
+;(defvar wa-input "input/lipitorFams.csv")
+;(defvar wa-input "input/cholestorolFams.csv")
+(defvar wa-input "input/drugFams.csv")
+(defvar wa-n 10)
+(defvar wa-output "out.html")
+(defun wa-annotate ()
+  "Call wikipedia annotate script"
+  (interactive)
+  (shell-command
+   (concat "cd /Users/benimmanuel/Desktop/wikipedia-annotate; "
+           "python annotate.py " wa-input " -n " (number-to-string wa-n)
+           " > " wa-output)))
+

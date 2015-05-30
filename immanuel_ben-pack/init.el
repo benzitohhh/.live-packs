@@ -61,6 +61,7 @@ re-downloaded in order to locate PACKAGE."
      php-mode
      zenburn-theme
      ac-cider-compliment
+     sparql-mode
      )))
 (condition-case nil
     (init--install-packages)
