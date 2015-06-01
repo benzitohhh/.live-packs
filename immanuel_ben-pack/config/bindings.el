@@ -264,6 +264,9 @@
             (define-key sparql-mode-map (kbd "C-c C-c") 'sparql-query-region)
             (define-key sparql-mode-map (kbd "<s-return>") 'sparql-query-region)))
 
+;; pig (hadoop)
+(add-to-list 'auto-mode-alist '("\\.pig" . sql-mode))
+
 ;; TEMPORARY
 (global-set-key (kbd "<s-return>") 'wa-annotate)
 ;(defvar wa-input "input/lipitorFams.csv")
